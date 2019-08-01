@@ -18,7 +18,7 @@ import {platform, IOS} from '@vkontakte/vkui';
 
 const osname = platform();
 
-class BeginQuest extends React.Component {
+class Alexandrov extends React.Component {
 
     constructor(props) {
         super(props);
@@ -37,19 +37,18 @@ class BeginQuest extends React.Component {
                     // <HeaderButton onClick={() => {sessionStorage.removeItem("captcha"); this.props.go("register");}}>{osname === IOS ? <Icon28ChevronBack fill="#5181b8"/> :
                     //     <Icon24Back fill="#5181b8"/>}</HeaderButton>}
                 >
-                    Квест 1/14</PanelHeader>
+                    Квест 2/14</PanelHeader>
                 <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                     <br/> <br/>
-                    <img width="170" height="170" src="https://vk.com/sticker/1-14085-256" alt="Begin"/>
+                    <img width="170" height="170" src="https://vk.com/sticker/1-14153-256" alt="Alexandrov"/>
                 </Div>
                 <FormLayout>
                     <Div align="center">
-                        <h1>Привет!</h1>
-                        Добро пожаловать ВКонтакте - в офис самой крупной социальной сети в Европе. Лови первую
-                        ачивку за такое дело! Давай изучим подробно что здесь есть?
+                        Итак, начнем с самого главного места, куда стекаются толпы работников ежедневно, чтобы
+                        поговорить по душам, перекусить и просто хорошо провести время - кухни 3 этажа. Отправляйся туда
+                        и найди там Александрова
                     </Div>
-                    <Button size="xl"
-                            onClick={()=>this.props.go("alexandrov")}>
+                    <Button size="xl">
                         Поехали
                     </Button>
                 </FormLayout>
@@ -59,11 +58,11 @@ class BeginQuest extends React.Component {
     }
 }
 
-BeginQuest.propTypes = {
+Alexandrov.propTypes = {
     id: PropTypes.string.isRequired,
     go: PropTypes.func.isRequired,
     popoutChange: PropTypes.func.isRequired,
     modalChange: PropTypes.func.isRequired
 };
 
-export default BeginQuest;
+export default Alexandrov;

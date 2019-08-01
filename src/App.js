@@ -6,12 +6,12 @@ import Tabbar from '@vkontakte/vkui/dist/components/Tabbar/Tabbar';
 import TabbarItem from '@vkontakte/vkui/dist/components/TabbarItem/TabbarItem';
 import Icon28More from '@vkontakte/icons/dist/28/more';
 import '@vkontakte/vkui/dist/vkui.css';
-
-import BeginQuest from './panels/Quest/BeginQuest';
 import ModalRoot from "@vkontakte/vkui/dist/components/ModalRoot/ModalRoot";
 import ModalCard from "@vkontakte/vkui/dist/components/ModalCard/ModalCard";
 import Icon56MoneyTransferOutline from '@vkontakte/icons/dist/56/money_transfer_outline';
 
+import BeginQuest from './panels/Quest/BeginQuest';
+import Alexandrov from "./panels/Quest/Alexandrov";
 const MODAL_CARD_MONEY_SEND = 'money-send';
 
 
@@ -19,7 +19,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         if (localStorage.getItem("activePanel") === null) {
-            localStorage.setItem("activePanel", "quest");
+            localStorage.setItem("activePanel", "begin");
         }
         this.state = {
             activeModal: null,
@@ -108,7 +108,14 @@ class App extends React.Component {
                 <View id="quest" popout={this.state.popout} activePanel={this.state.activePanel} modal={modal}>
 
                     <BeginQuest
-                        id="quest"
+                        id="begin"
+                        go={this.go}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+
+                    <Alexandrov
+                        id="alexandrov"
                         go={this.go}
                         popoutChange={this.popoutChange}
                         modalChange={this.setActiveModal}
