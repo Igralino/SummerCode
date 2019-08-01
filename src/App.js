@@ -6,25 +6,55 @@ import Tabbar from '@vkontakte/vkui/dist/components/Tabbar/Tabbar';
 import TabbarItem from '@vkontakte/vkui/dist/components/TabbarItem/TabbarItem';
 import Icon28More from '@vkontakte/icons/dist/28/more';
 import '@vkontakte/vkui/dist/vkui.css';
+import ModalRoot from "@vkontakte/vkui/dist/components/ModalRoot/ModalRoot";
+import ModalCard from "@vkontakte/vkui/dist/components/ModalCard/ModalCard";
+import Icon56MoneyTransferOutline from '@vkontakte/icons/dist/56/money_transfer_outline';
 
 import BeginQuest from './panels/Quest/BeginQuest';
+import Alexandrov from "./panels/Quest/Alexandrov";
+const MODAL_CARD_MONEY_SEND = 'money-send';
+
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         if (localStorage.getItem("activePanel") === null) {
-            localStorage.setItem("activePanel", "quest");
+            localStorage.setItem("activePanel", "begin");
         }
         this.state = {
+            activeModal: null,
+            modalHistory: [],
             activePanel: localStorage.getItem("activePanel"),
             authToken: null,
             captchaImage: null,
             popout: null,
             activeStory: "quest"
         };
+        this.modalBack = () => {
+            this.setActiveModal(this.state.modalHistory[this.state.modalHistory.length - 2]);
+        };
         this.onStoryChange = this.onStoryChange.bind(this);
         connect.send("VKWebAppSetViewSettings", {"status_bar_style": "dark", "action_bar_color": "#ffffffS"});
     }
+
+    setActiveModal = (activeModal) => {
+        activeModal = activeModal || null;
+        console.log(this.state.modalHistory);
+        let modalHistory = this.state.modalHistory ? [...this.state.modalHistory] : [];
+
+        if (activeModal === null) {
+            modalHistory = [];
+        } else if (modalHistory.indexOf(activeModal) !== -1) {
+            modalHistory = modalHistory.splice(0, modalHistory.indexOf(activeModal) + 1);
+        } else {
+            modalHistory.push(activeModal);
+        }
+
+        this.setState({
+            activeModal,
+            modalHistory
+        });
+    };
 
     componentDidMount() {
         connect.subscribe((e) => {
@@ -54,6 +84,16 @@ class App extends React.Component {
     };
 
     render() {
+        const modal =  ( <ModalRoot activeModal={this.state.activeModal}>
+            <ModalCard
+                id={MODAL_CARD_MONEY_SEND}
+                onClose={() => this.setActiveModal(null)}
+                icon={<Icon56MoneyTransferOutline />}
+                title="Отправляйте деньги друзьям, используя банковскую карту"
+                caption="Номер карты получателя не нужен — он сам решит, куда зачислить средства."
+            >
+            </ModalCard>
+        </ModalRoot>);
         return (
             <Epic activeStory={this.state.activeStory} tabbar={
                 <Tabbar>
@@ -63,55 +103,25 @@ class App extends React.Component {
                         data-story="quest"
                         text="Квест"
                     ><Icon28More/></TabbarItem>
-                    {/*<TabbarItem*/}
-                    {/*    onClick={this.onStoryChange}*/}
-                    {/*    selected={this.state.activeStory === 'top'}*/}
-                    {/*    data-story="top"*/}
-                    {/*    text="Топ"*/}
-                    {/*><Icon28More/></TabbarItem>*/}
-                    {/*<TabbarItem*/}
-                    {/*    onClick={this.onStoryChange}*/}
-                    {/*    selected={this.state.activeStory === 'achievement'}*/}
-                    {/*    data-story="achievement"*/}
-                    {/*    text="Достижения"*/}
-                    {/*><Icon28More/></TabbarItem>*/}
                 </Tabbar>
             }>
-                <View id="quest" popout={this.state.popout} activePanel={this.state.activePanel}>
+                <View id="quest" popout={this.state.popout} activePanel={this.state.activePanel} modal={modal}>
 
                     <BeginQuest
-                        id="quest"
+                        id="begin"
                         go={this.go}
                         popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
                     />
 
-                    {/*<Captcha*/}
-                    {/*    id="captcha"*/}
-                    {/*    captchaImage={this.state.captchaImage}*/}
-                    {/*    go={this.go}*/}
-                    {/*    popoutChange={this.popoutChange}*/}
-                    {/*/>*/}
+                    <Alexandrov
+                        id="alexandrov"
+                        go={this.go}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
 
-                    {/*<Results*/}
-                    {/*    id="results"*/}
-                    {/*    go={this.go}*/}
-                    {/*    popoutChange={this.popoutChange}*/}
-                    {/*/>*/}
                 </View>
-                {/*<View popout={this.state.popout} id="top" activePanel="top">*/}
-                {/*    <Top*/}
-                {/*        id="top"*/}
-                {/*        go={this.go}*/}
-                {/*        popoutChange={this.popoutChange}*/}
-                {/*    />*/}
-                {/*</View>*/}
-                {/*<View popout={this.state.popout} id="achievement" activePanel="achievement">*/}
-                {/*    <Top*/}
-                {/*        id="top"*/}
-                {/*        go={this.go}*/}
-                {/*        popoutChange={this.popoutChange}*/}
-                {/*    />*/}
-                {/*</View>*/}
             </Epic>
         );
     }
