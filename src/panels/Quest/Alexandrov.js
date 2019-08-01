@@ -14,6 +14,7 @@ import Icon24Back from '@vkontakte/icons/dist/24/back'
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import {platform, IOS} from '@vkontakte/vkui';
 // import {urlBack} from "../../App";
+import "../styles.css";
 
 
 const osname = platform();
@@ -48,7 +49,8 @@ class Alexandrov extends React.Component {
                         поговорить по душам, перекусить и просто хорошо провести время - кухни 3 этажа. Отправляйся туда
                         и найди там Александрова
                     </Div>
-                    <Button size="xl">
+                    <Button size="xl"
+                            onClick={()=>this.props.go("nastya")}>
                         Поехали
                     </Button>
                 </FormLayout>

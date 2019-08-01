@@ -12,6 +12,8 @@ import Icon56MoneyTransferOutline from '@vkontakte/icons/dist/56/money_transfer_
 
 import BeginQuest from './panels/Quest/BeginQuest';
 import Alexandrov from "./panels/Quest/Alexandrov";
+import Nastya from "./panels/Quest/Nastya";
+
 import Achievements from './panels/Achievements';
 
 const MODAL_CARD_MONEY_SEND = 'money-send';
@@ -30,8 +32,6 @@ class App extends React.Component {
             activeQuestPanel: localStorage.getItem("activeQuestPanel"),
             activeAchievementsPanel: localStorage.getItem("activeAchievementsPanel"),
 
-            activeModal: null,
-            modalHistory: [],
             modalHistory: [],
             activeModal: null,
             authToken: null,
@@ -120,7 +120,7 @@ class App extends React.Component {
                     ><Icon28More/></TabbarItem>
                 </Tabbar>
             }>
-                <View id="quest" popout={this.state.popout} activePanel={this.state.activeQuestPanel}>
+                <View id="quest" popout={this.state.popout} activePanel={this.state.activeQuestPanel} modal={modal}>
 
                     <BeginQuest
                         id="questPanel"
@@ -130,10 +130,17 @@ class App extends React.Component {
                     />
                     <Alexandrov
                         id="alexandrov"
-                        go={this.go}
+                        go={this.goQuest}
                         popoutChange={this.popoutChange}
                         modalChange={this.setActiveModal}
                     />
+                    <Nastya
+                        id="nastya"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+
                 </View>
                 <View id="achievements" popout={this.state.popout} activePanel={this.state.activeAchievementsPanel}>
 
