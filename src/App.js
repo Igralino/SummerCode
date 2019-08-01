@@ -31,6 +31,8 @@ class App extends React.Component {
 
             activeModal: null,
             modalHistory: [],
+            modalHistory: [],
+            activeModal: null,
             authToken: null,
             captchaImage: null,
             popout: null,
