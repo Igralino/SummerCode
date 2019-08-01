@@ -19,6 +19,8 @@ import Nastya2 from "./panels/Quest/Nastya2";
 import Dambo from "./panels/Quest/Dambo";
 import Dambo2 from "./panels/Quest/Dambo2";
 import Lampas from "./panels/Quest/Lampas";
+import Lunch from "./panels/Quest/Lunch";
+import Zozh from "./panels/Quest/Zozh";
 
 import Achievements from './panels/Achievements';
 
@@ -172,6 +174,18 @@ class App extends React.Component {
                     />
                     <Lampas
                         id="lampas"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Lunch
+                        id="lunch"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Zozh
+                        id="zozh"
                         go={this.goQuest}
                         popoutChange={this.popoutChange}
                         modalChange={this.setActiveModal}
