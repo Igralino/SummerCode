@@ -25,6 +25,9 @@ import Stars from "./panels/Quest/Stars";
 import Pixel from "./panels/Quest/Pixel";
 import Virus from "./panels/Quest/Virus";
 import Hell from "./panels/Quest/Hell";
+import Hero from "./panels/Quest/Hero";
+import Kupol from "./panels/Quest/Hero";
+import Final from "./panels/Quest/Hero";
 
 import Achievements from './panels/Achievements';
 
@@ -214,6 +217,24 @@ class App extends React.Component {
                     />
                     <Hell
                         id="hell"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Hero
+                        id="hell"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Kupol
+                        id="kupol"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Final
+                        id="final"
                         go={this.goQuest}
                         popoutChange={this.popoutChange}
                         modalChange={this.setActiveModal}

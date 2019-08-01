@@ -22,7 +22,7 @@ import connect from "@vkontakte/vkui-connect";
 
 const osname = platform();
 
-class Hell extends React.Component {
+class Final extends React.Component {
 
     constructor(props) {
         super(props);
@@ -46,14 +46,7 @@ class Hell extends React.Component {
                 </Div>
                 <FormLayout>
                     <Div align="center">
-                        К админам мы конечно сходили, но молва о тебе разнеслась повсюду. Тебя вызвали в пыточную,
-                        парень. Тут я тебе не помощник.
-                    </Div>
-
-                    <Button size="xl"
-                            onClick={() => this.props.go("hero")}>
-                        QR
-                    </Button>
+                        Что ж, вот ты и обошел весь Зингер вдоль и поперек.</Div>
                 </FormLayout>
 
             </Panel>
@@ -61,11 +54,11 @@ class Hell extends React.Component {
     }
 }
 
-Hell.propTypes = {
+Final.propTypes = {
     id: PropTypes.string.isRequired,
     go: PropTypes.func.isRequired,
     popoutChange: PropTypes.func.isRequired,
     modalChange: PropTypes.func.isRequired
 };
 
-export default Hell;
+export default Final;

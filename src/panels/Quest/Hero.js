@@ -22,7 +22,7 @@ import connect from "@vkontakte/vkui-connect";
 
 const osname = platform();
 
-class Hell extends React.Component {
+class Hero extends React.Component {
 
     constructor(props) {
         super(props);
@@ -46,12 +46,12 @@ class Hell extends React.Component {
                 </Div>
                 <FormLayout>
                     <Div align="center">
-                        К админам мы конечно сходили, но молва о тебе разнеслась повсюду. Тебя вызвали в пыточную,
-                        парень. Тут я тебе не помощник.
-                    </Div>
+                        Как оказалось, тебя хотели похвалить за пойманный вирус. Ты теперь народный герой! Предлагаю это
+                        дело отметить и сделать крутую фотку с Казанским собором. Я знаю отличное и популярное место для
+                        этого, но говорить конечно же не буду. Придется поискать самому! </Div>
 
                     <Button size="xl"
-                            onClick={() => this.props.go("hero")}>
+                            onClick={() => this.props.go("kupol")}>
                         QR
                     </Button>
                 </FormLayout>
@@ -61,11 +61,11 @@ class Hell extends React.Component {
     }
 }
 
-Hell.propTypes = {
+Hero.propTypes = {
     id: PropTypes.string.isRequired,
     go: PropTypes.func.isRequired,
     popoutChange: PropTypes.func.isRequired,
     modalChange: PropTypes.func.isRequired
 };
 
-export default Hell;
+export default Hero;
