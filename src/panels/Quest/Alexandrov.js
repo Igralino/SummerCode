@@ -46,7 +46,7 @@ class Alexandrov extends React.Component {
                     </Div>
                     <Button size="xl"
                             onClick={()=>{
-                                this.props.modalChange('money-send');
+                                this.props.modalChange('room');
                                 this.props.go("nastya")}}>
                         QR
                     </Button>

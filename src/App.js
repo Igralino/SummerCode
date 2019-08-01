@@ -10,6 +10,7 @@ import Icon28User from '@vkontakte/icons/dist/28/user';
 import '@vkontakte/vkui/dist/vkui.css';
 import ModalRoot from "@vkontakte/vkui/dist/components/ModalRoot/ModalRoot";
 import ModalCard from "@vkontakte/vkui/dist/components/ModalCard/ModalCard";
+import Avatar from "@vkontakte/vkui/dist/components/Avatar/Avatar";
 import Icon56MoneyTransferOutline from '@vkontakte/icons/dist/56/money_transfer_outline';
 
 import BeginQuest from './panels/Quest/BeginQuest';
@@ -26,8 +27,8 @@ import Pixel from "./panels/Quest/Pixel";
 import Virus from "./panels/Quest/Virus";
 import Hell from "./panels/Quest/Hell";
 import Hero from "./panels/Quest/Hero";
-import Kupol from "./panels/Quest/Hero";
-import Final from "./panels/Quest/Hero";
+import Kupol from "./panels/Quest/Kupol";
+import Final from "./panels/Quest/Final";
 
 import Achievements from './panels/Achievements';
 
@@ -108,14 +109,17 @@ class App extends React.Component {
     };
 
     render() {
-        const modal =  ( <ModalRoot activeModal={this.state.activeModal}>
+        const modal = (<ModalRoot activeModal={this.state.activeModal}>
             <ModalCard
-                id={MODAL_CARD_MONEY_SEND}
+                id="room"
                 onClose={() => this.setActiveModal(null)}
-                icon={<Icon56MoneyTransferOutline />}
-                title="Отправляйте деньги друзьям, используя банковскую карту"
-                caption="Номер карты получателя не нужен — он сам решит, куда зачислить средства."
-            >
+            ><div align="center" >
+                <h1 className="achievementCard">Новое достижение!</h1>
+                <img className="achievementImg" width="80" height="80" src="https://vk.com/sticker/1-2923-128"/>
+                <div className="achievementSubtitle">Тайная комната</div>
+                <div>Сходить в туалет на 7 этаже Зингера</div>
+                <br/>
+            </div>
             </ModalCard>
         </ModalRoot>);
         return (
@@ -142,104 +146,102 @@ class App extends React.Component {
                 </Tabbar>
             }>
                 <View id="quest" popout={this.state.popout} activePanel={this.state.activeQuestPanel} modal={modal}>
-
-                    <BeginQuest
-                        id="questPanel"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Alexandrov
-                        id="alexandrov"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Nastya
-                        id="nastya"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Nastya2
-                        id="nastya2"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Dambo
-                        id="dambo"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Dambo2
-                        id="dambo2"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Lampas
-                        id="lampas"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Lunch
-                        id="lunch"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Zozh
-                        id="zozh"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Stars
-                        id="stars"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Pixel
-                        id="pixel"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Virus
-                        id="virus"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Hell
-                        id="hell"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Hero
-                        id="hero"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Kupol
-                        id="kupol"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-                    <Final
-                        id="final"
-                        go={this.goQuest}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-
+                        <BeginQuest
+                            id="questPanel"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Alexandrov
+                            id="alexandrov"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Nastya
+                            id="nastya"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Nastya2
+                            id="nastya2"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Dambo
+                            id="dambo"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Dambo2
+                            id="dambo2"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Lampas
+                            id="lampas"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Lunch
+                            id="lunch"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Zozh
+                            id="zozh"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Stars
+                            id="stars"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Pixel
+                            id="pixel"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Virus
+                            id="virus"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Hell
+                            id="hell"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Hero
+                            id="hero"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Kupol
+                            id="final"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
+                        <Final
+                            id="final"
+                            go={this.goQuest}
+                            popoutChange={this.popoutChange}
+                            modalChange={this.setActiveModal}
+                        />
                 </View>
                 <View id="achievements" popout={this.state.popout} activePanel={this.state.activeAchievementsPanel}>
 

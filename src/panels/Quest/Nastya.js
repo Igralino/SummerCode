@@ -52,7 +52,9 @@ class Nastya extends React.Component {
         let {id} = this.props;
         return (
             <Panel id={id} theme="white">
-                <Div><div className="categoryText">Квест 3/16</div></Div>
+                <Div>
+                    <div className="categoryText">Квест 3/16</div>
+                </Div>
                 <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                     <br/> <br/>
                     <img width="170" height="170" src="http://vk.com/sticker/1-14153-256" alt="Begin"/>
@@ -68,7 +70,8 @@ class Nastya extends React.Component {
                             Ищи ее на пятом этаже, в левом крыле!
                         </FormStatus>}
                         {this.state.badSubmitted && <FormStatus title="Ничего, с кем не бывает." state="error">
-                            За качество тебе готова пояснить <b>Настя Семенюк</b> - отважный лидер команды QA. Ищи ее на пятом
+                            За качество тебе готова пояснить <b>Настя Семенюк</b> - отважный лидер команды QA. Ищи ее на
+                            пятом
                             этаже, в левом крыле!
                         </FormStatus>}
                         <Radio name="radio" id="mother" onChange={this.handleAnswerChange}
@@ -81,12 +84,13 @@ class Nastya extends React.Component {
                                checked={this.state.answerID === "durov"}
                                disabled={this.state.goodSubmitted || this.state.badSubmitted}>Павел Дуров</Radio>
                     </div>
-                    {(!this.state.goodSubmitted && !this.state.badSubmitted) && <Button size="xl"
+                    {(!this.state.goodSubmitted && !this.state.badSubmitted) && this.state.answerID !== null &&
+                    <Button size="xl"
                             onClick={this.handleSubmit}>
                         Узнать ответ
                     </Button>}
                     {(this.state.goodSubmitted || this.state.badSubmitted) && <Button size="xl"
-                                                                                    onClick={()=>this.props.go("nastya2")}>
+                                                                                      onClick={() => this.props.go("nastya2")}>
                         QR
                     </Button>}
                 </FormLayout>

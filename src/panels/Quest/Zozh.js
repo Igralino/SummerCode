@@ -52,7 +52,9 @@ class Zozh extends React.Component {
         let {id} = this.props;
         return (
             <Panel id={id} theme="white">
-                <Div><div className="categoryText">Квест 9/16</div></Div>
+                <Div>
+                    <div className="categoryText">Квест 9/16</div>
+                </Div>
 
                 <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                     <br/> <br/>
@@ -82,8 +84,9 @@ class Zozh extends React.Component {
                             прекрасного лифта, не могу отказать себе в таком удовольствии!</Radio>
 
                     </div>
-                    {(!this.state.goodSubmitted && !this.state.badSubmitted) && <Button size="xl"
-                                                                                        onClick={this.handleSubmit}>
+                    {(!this.state.goodSubmitted && !this.state.badSubmitted) && this.state.answerID !== null &&
+                    <Button size="xl"
+                            onClick={this.handleSubmit}>
                         Ииии...
                     </Button>}
                     {(this.state.goodSubmitted || this.state.badSubmitted) && <Button size="xl"
