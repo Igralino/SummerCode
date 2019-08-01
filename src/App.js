@@ -12,10 +12,11 @@ import Icon56MoneyTransferOutline from '@vkontakte/icons/dist/56/money_transfer_
 
 import BeginQuest from './panels/Quest/BeginQuest';
 import Alexandrov from "./panels/Quest/Alexandrov";
+import Achievements from './panels/Achievements';
+
 const MODAL_CARD_MONEY_SEND = 'money-send';
 
 
-import Achievements from './panels/Achievements';
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -77,9 +78,9 @@ class App extends React.Component {
         connect.send('VKWebAppGetUserInfo', {});
     }
 
-    go = (activePanel) => {
-        this.setState({activePanel: activePanel});
-        localStorage.setItem("activePanel", activePanel);
+    goQuest = (activeQuestPanel) => {
+        this.setState({activeQuestPanel: activeQuestPanel});
+        localStorage.setItem("activeQuestPanel", activeQuestPanel);
     };
 
     onStoryChange(e) {
@@ -123,6 +124,12 @@ class App extends React.Component {
 
                     <BeginQuest
                         id="questPanel"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Alexandrov
+                        id="alexandrov"
                         go={this.go}
                         popoutChange={this.popoutChange}
                         modalChange={this.setActiveModal}
@@ -135,13 +142,6 @@ class App extends React.Component {
                         go={this.go}
                         popoutChange={this.popoutChange}
                     />
-                    <Alexandrov
-                        id="alexandrov"
-                        go={this.go}
-                        popoutChange={this.popoutChange}
-                        modalChange={this.setActiveModal}
-                    />
-
                 </View>
             </Epic>
         );

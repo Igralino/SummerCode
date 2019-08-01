@@ -13,7 +13,7 @@ import Alert from '@vkontakte/vkui/dist/components/Alert/Alert'
 import Icon24Back from '@vkontakte/icons/dist/24/back'
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import {platform, IOS} from '@vkontakte/vkui';
-import '../styles.css';
+// import '../styles.css';
 
 const osname = platform();
 
