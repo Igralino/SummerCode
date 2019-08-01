@@ -231,7 +231,7 @@ class App extends React.Component {
                             modalChange={this.setActiveModal}
                         />
                         <Kupol
-                            id="final"
+                            id="kupol"
                             go={this.goQuest}
                             popoutChange={this.popoutChange}
                             modalChange={this.setActiveModal}
