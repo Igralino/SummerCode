@@ -24,6 +24,7 @@ const AchievementsBasic=[
         description: 'Открыть сервис',
         img: 'https://vk.com/sticker/1-14085-256',
         isHidden: false,
+        hash: 'welcome'
     },
     {
         id: 2,
@@ -31,6 +32,7 @@ const AchievementsBasic=[
         description: 'Взять из холодильника те самые сырки',
         img: 'https://vk.com/sticker/1-14153-256',
         isHidden: false,
+        hash: 'byalex'
     },
     {
         id: 3,
@@ -38,6 +40,7 @@ const AchievementsBasic=[
         description: 'Сходить в крыло QA',
         img: 'https://vk.com/sticker/1-14085-256',
         isHidden: false,
+        hash: 'qa'
     },
     {
         id: 4,
@@ -45,6 +48,7 @@ const AchievementsBasic=[
         description: 'Попыхтим?',
         img: 'http://vk.com/sticker/1-13769-256-9',
         isHidden: false,
+        hash: 'dambo'
     },
     {
         id: 5,
@@ -52,6 +56,7 @@ const AchievementsBasic=[
         description: 'Найди код в игровой комнате?',
         img: 'http://vk.com/sticker/1-13935-256',
         isHidden: false,
+        hash: 'gamemode'
     },
     {
         id: 6,
@@ -59,6 +64,7 @@ const AchievementsBasic=[
         description: 'Позвать друга на обед',
         img: 'http://vk.com/sticker/1-13831-256',
         isHidden: false,
+        hash: 'golunch'
     },
     {
         id: 7,
@@ -66,13 +72,15 @@ const AchievementsBasic=[
         description: 'Подняться пешком на 6 этаж',
         img: 'http://vk.com/images/stickers/7243/256.png',
         isHidden: false,
+        hash: 'zoj'
     },
     {
         id: 8,
-        name: 'Я МЕГА-ЗВЕДА',
+        name: 'Я МЕГАЗВЕЗДА',
         description: 'Найти стену с автографами известных личностей',
         img: 'http://vk.com/images/stickers/5389/256.png',
         isHidden: false,
+        hash: 'superstar'
     },
     {
         id: 9,
@@ -80,6 +88,7 @@ const AchievementsBasic=[
         description: 'Найти полотно пиксель-баттла',
         img: 'http://vk.com/images/stickers/10223/256.png',
         isHidden: false,
+        hash: 'pixel'
     },
     {
         id: 10,
@@ -87,6 +96,7 @@ const AchievementsBasic=[
         description: 'Подойти на 7 этаж для дополнительной проверки антивирусом',
         img: 'https://vk.com/sticker/1-10006-256',
         isHidden: false,
+        hash: 'admins'
     },
     {
         id: 11,
@@ -94,6 +104,7 @@ const AchievementsBasic=[
         description: 'А я смотрю, ты любишь пожестче',
         img: 'https://vk.com/images/stickers/3329/256.png',
         isHidden: false,
+        hash: 'bdsm'
     },
     {
         id: 12,
@@ -101,6 +112,7 @@ const AchievementsBasic=[
         description: 'Выложить историю с Казанским собором',
         img: 'https://vk.com/sticker/1-8625-256',
         isHidden: false,
+        hash: 'kazansky'
     },
     {
         id: 13,
@@ -108,6 +120,7 @@ const AchievementsBasic=[
         description: 'Пройти квест кролика Олега',
         img: 'http://vk.com/sticker/1-14112-256',
         isHidden: false,
+        hash: 'complete'
     },
 ]
 
@@ -118,6 +131,7 @@ const AchievementsBrothers = [
         description: 'Кто-то забыл добавить описание',
         img: 'https://vk.com/sticker/1-14145-256',
         isHidden: true,
+        hash: 'gowork'
     },
     {
         id: 21,
@@ -125,6 +139,7 @@ const AchievementsBrothers = [
         description: 'Что-то про VK Coin',
         img: 'https://vk.com/sticker/1-3774-256',
         isHidden: true,
+        hash: 'musicroom'
     },
     {
         id: 25,
@@ -132,6 +147,7 @@ const AchievementsBrothers = [
         description: 'Пройти путь джедая',
         img: 'http://vk.com/images/stickers/5551/256.png',
         isHidden: true,
+        hash: 'adminpanic'
     },
 ]
 
@@ -142,6 +158,7 @@ const AchievementsPlaces = [
         description: 'Сходить в красную уборную Зингера',
         img: 'https://vk.com/sticker/1-2923-256',
         isHidden: true,
+        hash: 'room'
     },
     {
         id: 16,
@@ -149,6 +166,7 @@ const AchievementsPlaces = [
         description: 'Забраться на самую высокую точку в Зингере',
         img: 'http://vk.com/sticker/1-13952-256',
         isHidden: true,
+        hash: 'eagle'
     },
     {
         id: 22,
@@ -156,6 +174,7 @@ const AchievementsPlaces = [
         description: 'Найдется сдача с 5К?',
         img: 'https://vk.com/sticker/1-3774-256',
         isHidden: true,
+        hash: 'durov'
     },
     {
         id: 23,
@@ -163,6 +182,7 @@ const AchievementsPlaces = [
         description: 'Почувствовать себя Геральтом из Ривии',
         img: 'http://vk.com/images/stickers/10262/256.png',
         isHidden: true,
+        hash: 'pony'
     },
     {
         id: 24,
@@ -170,6 +190,7 @@ const AchievementsPlaces = [
         description: 'Заночевать в Зингере',
         img: 'https://vk.com/sticker/1-2464-256',
         isHidden: true,
+        hash: 'somesleep'
     },
 ]
 
@@ -181,6 +202,7 @@ const AchievementsDepartments = [
         description: 'Вы еще не слышали про VK Pay?',
         img: 'https://vk.com/sticker/1-13367-256',
         isHidden: true,
+        hash: 'vkpay'
     },
     {
         id: 19,
@@ -188,6 +210,7 @@ const AchievementsDepartments = [
         description: 'Где макет?',
         img: 'https://vk.com/sticker/1-14133-256',
         isHidden: true,
+        hash: 'olegmaket'
     },
     {
         id: 20,
@@ -195,6 +218,7 @@ const AchievementsDepartments = [
         description: 'Скибиди-ва-па-па',
         img: 'https://vk.com/images/stickers/10094/256.png',
         isHidden: true,
+        hash: 'musicroom'
     },
     
 ]
@@ -206,6 +230,7 @@ const AchievementsEpic = [
         description: 'Собрать все ачивки',
         img: 'https://vk.com/sticker/1-5088-256',
         isHidden: true,
+        hash: 'fuckyeah'
     },
 ]
 class Achievements extends React.Component {
