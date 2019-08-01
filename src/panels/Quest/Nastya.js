@@ -35,20 +35,12 @@ class Nastya extends React.Component {
         connect.send("VKWebAppTapticImpactOccurred", {"style": "medium"});
 
         this.setState({answerID: evt.target.id});
-    };
+    }
 
     handleSubmit = (evt) => {
         const queryParams = window.location.search;
-        const userURL = urlBack + "userInfo";
-        let formData = {
-            name: this.state.name,
-            surname: this.state.surname,
-            patronymic: this.state.patronymic,
-            documentID: this.state.documentID,
-            documentType: this.state.documentType,
-            region: this.state.region,
-            vkParams: queryParams
-        };
+        
+    };
 
     render() {
         let {id} = this.props;
