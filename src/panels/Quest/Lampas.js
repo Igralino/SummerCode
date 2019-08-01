@@ -19,8 +19,8 @@ import "../styles.css";
 
 const osname = platform();
 
-class Alexandrov extends React.Component {
 
+class Lampas extends React.Component {
     constructor(props) {
         super(props);
 
@@ -41,19 +41,18 @@ class Alexandrov extends React.Component {
                     Квест 2/14</PanelHeader>
                 <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                     <br/> <br/>
-                    <img width="170" height="170" src="https://vk.com/sticker/1-14153-256" alt="Alexandrov"/>
+                    <img width="170" height="170" src="http://vk.com/sticker/1-14144-256" alt="Alexandrov"/>
                 </Div>
                 <FormLayout>
                     <Div align="center">
-                        Итак, начнем с самого главного места, куда стекаются толпы работников ежедневно, чтобы
-                        поговорить по душам, перекусить и просто хорошо провести время - кухни 3 этажа. Отправляйся туда
-                        и найди там Александрова
+                        Уверен, что беготня по этажам тебя немного утомила. Предлагаю подняться на пятый этаж и
+                        отдохнуть немного в игровой комнате. Покрас Лампас подскажет тебе верный путь
                     </Div>
                     <Button size="xl"
-                            onClick={()=>{
-                                this.props.modalChange('money-send');
-                                this.props.go("nastya")}}>
-                        QR
+                            onClick={() => {
+                                this.props.go("nastya")
+                            }}>
+                        Подкачаться
                     </Button>
                 </FormLayout>
 
@@ -62,11 +61,11 @@ class Alexandrov extends React.Component {
     }
 }
 
-Alexandrov.propTypes = {
+Lampas.propTypes = {
     id: PropTypes.string.isRequired,
     go: PropTypes.func.isRequired,
     popoutChange: PropTypes.func.isRequired,
     modalChange: PropTypes.func.isRequired
 };
 
-export default Alexandrov;
+export default Lampas;

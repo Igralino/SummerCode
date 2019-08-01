@@ -15,6 +15,10 @@ import Icon56MoneyTransferOutline from '@vkontakte/icons/dist/56/money_transfer_
 import BeginQuest from './panels/Quest/BeginQuest';
 import Alexandrov from "./panels/Quest/Alexandrov";
 import Nastya from "./panels/Quest/Nastya";
+import Nastya2 from "./panels/Quest/Nastya2";
+import Dambo from "./panels/Quest/Dambo";
+import Dambo2 from "./panels/Quest/Dambo2";
+import Lampas from "./panels/Quest/Lampas";
 
 import Achievements from './panels/Achievements';
 
@@ -144,6 +148,30 @@ class App extends React.Component {
                     />
                     <Nastya
                         id="nastya"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Nastya2
+                        id="nastya2"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Dambo
+                        id="dambo"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Dambo2
+                        id="dambo2"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Lampas
+                        id="lampas"
                         go={this.goQuest}
                         popoutChange={this.popoutChange}
                         modalChange={this.setActiveModal}
