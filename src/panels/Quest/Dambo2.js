@@ -35,11 +35,11 @@ class Dambo2 extends React.Component {
         let {id} = this.props;
         return (
             <Panel id={id} theme="white">
-                <Div><div className="categoryText">Квест 6/14</div></Div>
+                <Div><div className="categoryText">Квест 6/16</div></Div>
 
                 <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                     <br/> <br/>
-                    <img width="170" height="170" src="http://vk.com/sticker/1-13769-256-9" alt="Begin"/>
+                    <img width="170" height="170" src="https://vk.com/sticker/1-14157-256" alt="Begin"/>
                 </Div>
                 <FormLayout>
                     <Div align="center">

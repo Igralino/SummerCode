@@ -34,7 +34,7 @@ class Nastya2 extends React.Component {
         let {id} = this.props;
         return (
             <Panel id={id} theme="white">
-                <Div><div className="categoryText">Квест 4/14</div></Div>
+                <Div><div className="categoryText">Квест 4/16</div></Div>
 
                 <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                     <br/> <br/>
@@ -42,7 +42,7 @@ class Nastya2 extends React.Component {
                 </Div>
                 <FormLayout>
                     <Div align="center">
-                        <h1>Интересный факт:</h1>
+                        <h1>Интересный факт</h1>
                         Конкурс, положивший начало VK Testers, родился всего за 3 дня.
                     </Div>
 

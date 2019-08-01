@@ -32,7 +32,7 @@ class BeginQuest extends React.Component {
         let {id} = this.props;
         return (
             <Panel id={id} theme="white">
-                <Div><div className="categoryText">Квест 1/14</div></Div>
+                <Div><div className="categoryText">Квест 1/16</div></Div>
                 <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                     <br/> <br/>
                     <img width="170" height="170" src="https://vk.com/sticker/1-14085-256" alt="Begin"/>
