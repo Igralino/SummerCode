@@ -21,6 +21,10 @@ import Dambo2 from "./panels/Quest/Dambo2";
 import Lampas from "./panels/Quest/Lampas";
 import Lunch from "./panels/Quest/Lunch";
 import Zozh from "./panels/Quest/Zozh";
+import Stars from "./panels/Quest/Stars";
+import Pixel from "./panels/Quest/Pixel";
+import Virus from "./panels/Quest/Virus";
+import Hell from "./panels/Quest/Hell";
 
 import Achievements from './panels/Achievements';
 
@@ -186,6 +190,30 @@ class App extends React.Component {
                     />
                     <Zozh
                         id="zozh"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Stars
+                        id="stars"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Pixel
+                        id="pixel"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Virus
+                        id="virus"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Hell
+                        id="hell"
                         go={this.goQuest}
                         popoutChange={this.popoutChange}
                         modalChange={this.setActiveModal}

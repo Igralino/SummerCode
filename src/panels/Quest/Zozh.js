@@ -91,7 +91,7 @@ class Zozh extends React.Component {
                         Ииии...
                     </Button>}
                     {(this.state.goodSubmitted || this.state.badSubmitted) && <Button size="xl"
-                                                                                      onClick={() => this.props.go("nastya2")}>
+                                                                                      onClick={() => this.props.go("stars")}>
                         QR
                     </Button>}
                 </FormLayout>
