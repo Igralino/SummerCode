@@ -159,8 +159,8 @@ const AchievementsPlaces = [
     },
     {
         id: 23,
-        name: 'Вперед Плотва!',
-        description: 'Залезть на коня и почувствовать себя Геральтом из Ривии',
+        name: 'Вперед, Плотва!',
+        description: 'Почувствовать себя Геральтом из Ривии',
         img: 'http://vk.com/images/stickers/10262/256.png',
         isHidden: true,
     },
@@ -213,19 +213,16 @@ class Achievements extends React.Component {
     constructor(props) {
         super(props);
 
-        // this.state = {
-        //
-        // }
+         this.state = {
+            isFinished: true
+         }
     }
-
-    render() {
-        let {id} = this.props;
-        return (
-            <Panel id={id}>
-                <PanelHeader>Достижения</PanelHeader>
-                <Div><div class="categoryText">Квест от Олега</div></Div>
+    achievementsRender(){
+        return(
+            <div>
+                <Div><div className="categoryText">Квест от Олега</div></Div>
                 <Div>
-                <div class="settingsCard"
+                <div className="settingsCard"
                     style={{
                     display: 'flex',
                     marginTop: -10,
@@ -236,14 +233,14 @@ class Achievements extends React.Component {
                 >
                     {AchievementsBasic.map(
                     (item, index) => 
-                    <Achievement name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
+                    <Achievement key={item.id} name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
                     }
                 </div>
                 </Div>             
 
-                <Div><div class="categoryText">Братья наши меньшие</div></Div>
+                <Div><div className="categoryText">Братья наши меньшие</div></Div>
                 <Div>
-                <div class="settingsCard"
+                <div className="settingsCard"
                     style={{
                     display: 'flex',
                     marginTop: -10,
@@ -254,14 +251,14 @@ class Achievements extends React.Component {
                 >
                     {AchievementsBrothers.map(
                     (item, index) => 
-                    <Achievement name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
+                    <Achievement key={item.id} name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
                     }
                 </div>
                 </Div> 
 
-                <Div><div class="categoryText">Места</div></Div>
+                <Div><div className="categoryText">Места</div></Div>
                 <Div>
-                <div class="settingsCard"
+                <div className="settingsCard"
                     style={{
                     display: 'flex',
                     marginTop: -10,
@@ -272,14 +269,14 @@ class Achievements extends React.Component {
                 >
                     {AchievementsPlaces.map(
                     (item, index) => 
-                    <Achievement name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
+                    <Achievement key={item.id} name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
                     }
                 </div>
                 </Div> 
 
-                <Div><div class="categoryText">Отделы</div></Div>
+                <Div><div className="categoryText">Отделы</div></Div>
                 <Div>
-                <div class="settingsCard"
+                <div className="settingsCard"
                     style={{
                     display: 'flex',
                     marginTop: -10,
@@ -290,14 +287,14 @@ class Achievements extends React.Component {
                 >
                     {AchievementsDepartments.map(
                     (item, index) => 
-                    <Achievement name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
+                    <Achievement key={item.id} name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
                     }
                 </div>
                 </Div> 
 
-                <Div><div class="categoryText">Ультра редкая</div></Div>
+                <Div><div className="categoryText">Ультра редкая</div></Div>
                 <Div>
-                <div class="settingsCard"
+                <div className="settingsCard"
                     style={{
                     display: 'flex',
                     marginTop: -10,
@@ -308,10 +305,33 @@ class Achievements extends React.Component {
                 >
                     {AchievementsEpic.map(
                     (item, index) => 
-                    <Achievement name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
+                    <Achievement key={item.id} name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
                     }
                 </div>
                 </Div> 
+            </div>
+        )
+    }
+    errorRender(){
+        return(
+            <div>
+                <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
+                    <br/> <br/>
+                    <img width="170" height="170" src="https://vk.com/sticker/1-14137-512" alt="error"/>
+                    <FormLayout>
+                    <Div align="center">
+                        Ой, кажется Олег отказывается показывать достижения, пока ты не пройдешь весь квест. Прости :(
+                    </Div>
+                </FormLayout>
+                </Div>
+            </div>
+        )
+    }
+    render() {
+        let {id} = this.props;
+        return (
+            <Panel id={id}>
+                {this.state.isFinished ? this.achievementsRender() : this.errorRender()}
             </Panel>
         )
     }
@@ -319,7 +339,7 @@ class Achievements extends React.Component {
 
 Achievements.propTypes = {
     id: PropTypes.string.isRequired,
-    go: PropTypes.func.isRequired,
+    /*go: PropTypes.func.isRequired,*/
     popoutChange: PropTypes.func.isRequired
 };
 

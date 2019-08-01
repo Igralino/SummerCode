@@ -1,8 +1,5 @@
 import React, {Component} from "react";
-import Cell from "@vkontakte/vkui/dist/components/Cell/Cell";
 import Div from "@vkontakte/vkui/dist/components/Div/Div";
-import Avatar from "@vkontakte/vkui/dist/components/Avatar/Avatar";
-import Icon28User from '@vkontakte/icons/dist/28/user';
 import connect from '@vkontakte/vkui-connect'
 
 class Achievement extends Component {
@@ -31,7 +28,7 @@ class Achievement extends Component {
               >
                 {this.state.isHidden? 
                    <div
-                   class='sub2'
+                   className='sub2'
                    style={{
                    background: ` url(${this.state.img})`,
                    backgroundPosition: 'center',
@@ -41,7 +38,7 @@ class Achievement extends Component {
                    /> 
                    : 
                   <div
-                  class='sub'
+                  className='sub'
                   style={{
                   backgroundImage: `url(${this.state.img})`,
                   backgroundPosition: 'center',
@@ -51,9 +48,9 @@ class Achievement extends Component {
                   /> 
                 }
                 
-                <div class='tab'>
+                <div className='tab'>
                   <div
-                    class='headerText'
+                    className='headerText'
                     style={{
                       marginLeft:20
                     }}
