@@ -222,7 +222,7 @@ class App extends React.Component {
                         modalChange={this.setActiveModal}
                     />
                     <Hero
-                        id="hell"
+                        id="hero"
                         go={this.goQuest}
                         popoutChange={this.popoutChange}
                         modalChange={this.setActiveModal}
