@@ -39,20 +39,21 @@ class BeginQuest extends React.Component {
                 >
                     Квест 9/14</PanelHeader>
                 <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
-                    <img src="" alt="CAPTCHA"/>
+                    <br/> <br/>
+                    <img width="170" height="170" src="https://vk.com/sticker/1-14085-256" alt="CAPTCHA"/>
                 </Div>
                 <FormLayout>
-                    <Input pattern="\d*"
-                           // onChange={}
-                           // value={code}
-                           placeholder="000000"
-                           maxLength="6"
-                           type="tel"
-                           alignment="center"/>
-                    <Button
-                        // disabled={!this.state.isEnabled}
-                            // onClick={}
-                            size="xl">Отправить</Button>
+                    <Div align="center">
+                        <h1>Привет!</h1>
+                        Добро пожаловать ВКонтакте - в офис самой крупной социальной сети в Европе. Лови первую
+                        ачивку за такое дело! Давай изучим подробно что здесь есть?
+                    </Div>
+                    <Button size="xl" level="2" onClick={()=> {this.props.modalChange('money-send')}}>
+                        Открыть модальные карточки
+                    </Button>
+                    <Button size="xl">
+                        Поехали
+                    </Button>
                 </FormLayout>
 
             </Panel>
@@ -63,7 +64,8 @@ class BeginQuest extends React.Component {
 BeginQuest.propTypes = {
     id: PropTypes.string.isRequired,
     go: PropTypes.func.isRequired,
-    popoutChange: PropTypes.func.isRequired
+    popoutChange: PropTypes.func.isRequired,
+    modalChange: PropTypes.func.isRequired
 };
 
 export default BeginQuest;
