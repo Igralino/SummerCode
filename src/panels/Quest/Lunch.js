@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import axios from "axios";
+import connect from '@vkontakte/vkui-connect';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel'
 import Div from '@vkontakte/vkui/dist/components/Div/Div'
 import HeaderButton from '@vkontakte/vkui/dist/components/HeaderButton/HeaderButton'
@@ -29,6 +30,19 @@ class Lunch extends React.Component {
         // }
     }
 
+    componentDidMount() {
+        connect.subscribe((e) => {
+            switch (e.detail.type) {
+                case 'VKWebAppGetFriendsResult':
+                    this.props.go("zozh");
+                    window.location.href = "https://vk.me/id"+e.detail.data["users"][0]["id"];
+                    break;
+                default:
+                    console.log(e.detail.type);
+            }
+        });
+    }
+
     render() {
         let {id} = this.props;
         return (
@@ -51,7 +65,7 @@ class Lunch extends React.Component {
                     </Div>
                     <Button size="xl"
                             onClick={() => {
-                                this.props.go("nastya")
+                                connect.send("VKWebAppGetFriends", {});
                             }}>
                         Подкачаться
                     </Button>

@@ -50,7 +50,7 @@ class Lampas extends React.Component {
                     </Div>
                     <Button size="xl"
                             onClick={() => {
-                                this.props.go("nastya")
+                                this.props.go("lunch")
                             }}>
                         Подкачаться
                     </Button>
