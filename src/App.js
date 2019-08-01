@@ -4,7 +4,9 @@ import View from '@vkontakte/vkui/dist/components/View/View';
 import Epic from '@vkontakte/vkui/dist/components/Epic/Epic';
 import Tabbar from '@vkontakte/vkui/dist/components/Tabbar/Tabbar';
 import TabbarItem from '@vkontakte/vkui/dist/components/TabbarItem/TabbarItem';
-import Icon28More from '@vkontakte/icons/dist/28/more';
+import Icon28Game from '@vkontakte/icons/dist/28/game';
+import Icon28Favorite from '@vkontakte/icons/dist/28/favorite';
+import Icon28User from '@vkontakte/icons/dist/28/user';
 import '@vkontakte/vkui/dist/vkui.css';
 import ModalRoot from "@vkontakte/vkui/dist/components/ModalRoot/ModalRoot";
 import ModalCard from "@vkontakte/vkui/dist/components/ModalCard/ModalCard";
@@ -111,13 +113,19 @@ class App extends React.Component {
                         selected={this.state.activeStory === 'quest'}
                         data-story="quest"
                         text="Квест"
-                    ><Icon28More/></TabbarItem>
+                    ><Icon28Game/></TabbarItem>
                     <TabbarItem
                         onClick={this.onStoryChange}
                         selected={this.state.activeStory === 'achievements'}
                         data-story="achievements"
                         text="Достижения"
-                    ><Icon28More/></TabbarItem>
+                    ><Icon28Favorite/></TabbarItem>
+                    <TabbarItem
+                        onClick={this.onStoryChange}
+                        selected={this.state.activeStory === 'top'}
+                        data-story="top"
+                        text="Топ игроков"
+                    ><Icon28User/></TabbarItem>
                 </Tabbar>
             }>
                 <View id="quest" popout={this.state.popout} activePanel={this.state.activeQuestPanel}>

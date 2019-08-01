@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel'
 import Div from '@vkontakte/vkui/dist/components/Div/Div'
 import HeaderButton from '@vkontakte/vkui/dist/components/HeaderButton/HeaderButton'
-import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader'
+import Header from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader'
 import FormLayout from '@vkontakte/vkui/dist/components/FormLayout/FormLayout'
 import Input from '@vkontakte/vkui/dist/components/Input/Input'
 import Link from '@vkontakte/vkui/dist/components/Link/Link'
@@ -13,10 +13,201 @@ import Alert from '@vkontakte/vkui/dist/components/Alert/Alert'
 import Icon24Back from '@vkontakte/icons/dist/24/back'
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import {platform, IOS} from '@vkontakte/vkui';
-// import '../styles.css';
-
+import './styles.css';
+import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
+import Achievement from '../components/Achievement'
 const osname = platform();
+const AchievementsBasic=[
+    {
+        id: 1,
+        name: 'Welcome to the club, buddy',
+        description: 'Открыть сервис',
+        img: 'https://vk.com/sticker/1-14085-256',
+        isHidden: false,
+    },
+    {
+        id: 2,
+        name: 'Вдарим по Александрову?',
+        description: 'Взять из холодильника те самые сырки',
+        img: 'https://vk.com/sticker/1-14153-256',
+        isHidden: false,
+    },
+    {
+        id: 3,
+        name: 'Won’t fix',
+        description: 'Сходить в крыло QA',
+        img: 'https://vk.com/sticker/1-14085-256',
+        isHidden: false,
+    },
+    {
+        id: 4,
+        name: 'Дамбо',
+        description: 'Попыхтим?',
+        img: 'http://vk.com/sticker/1-13769-256-9',
+        isHidden: false,
+    },
+    {
+        id: 5,
+        name: 'Го катку, я создал',
+        description: 'Найди код в игровой комнате?',
+        img: 'http://vk.com/sticker/1-13935-256',
+        isHidden: false,
+    },
+    {
+        id: 6,
+        name: 'По НаЛанчу?',
+        description: 'Позвать друга на обед',
+        img: 'http://vk.com/sticker/1-13831-256',
+        isHidden: false,
+    },
+    {
+        id: 7,
+        name: 'За ЗОЖ!',
+        description: 'Подняться пешком на 6 этаж',
+        img: 'http://vk.com/images/stickers/7243/256.png',
+        isHidden: false,
+    },
+    {
+        id: 8,
+        name: 'Я МЕГА-ЗВЕДА',
+        description: 'Найти стену с автографами известных личностей',
+        img: 'http://vk.com/images/stickers/5389/256.png',
+        isHidden: false,
+    },
+    {
+        id: 9,
+        name: 'Настоящий артефакт эпохи',
+        description: 'Найти полотно пиксель-баттла',
+        img: 'http://vk.com/images/stickers/10223/256.png',
+        isHidden: false,
+    },
+    {
+        id: 10,
+        name: 'Вирус, замаскированный под uTorrent',
+        description: 'Подойти на 7 этаж для дополнительной проверки антивирусом',
+        img: 'https://vk.com/sticker/1-10006-256',
+        isHidden: false,
+    },
+    {
+        id: 11,
+        name: 'Под колпаком',
+        description: 'А я смотрю, ты любишь пожестче',
+        img: 'https://vk.com/images/stickers/3329/256.png',
+        isHidden: false,
+    },
+    {
+        id: 12,
+        name: 'Лучший вид на Казанский',
+        description: 'Выложить историю с Казанским собором',
+        img: 'https://vk.com/sticker/1-8625-256',
+        isHidden: false,
+    },
+    {
+        id: 13,
+        name: 'Дом Зингера',
+        description: 'Пройти квест кролика Олега',
+        img: 'http://vk.com/sticker/1-14112-256',
+        isHidden: false,
+    },
+]
 
+const AchievementsBrothers = [
+    {
+        id: 17,
+        name: 'Работать не пробовали?',
+        description: 'Кто-то забыл добавить описание',
+        img: 'https://vk.com/sticker/1-14145-256',
+        isHidden: true,
+    },
+    {
+        id: 21,
+        name: 'Хоу-хоу-хоу',
+        description: 'Что-то про VK Coin',
+        img: 'https://vk.com/sticker/1-3774-256',
+        isHidden: true,
+    },
+    {
+        id: 25,
+        name: 'Don’t panic',
+        description: 'Пройти путь джедая',
+        img: 'http://vk.com/images/stickers/5551/256.png',
+        isHidden: true,
+    },
+]
+
+const AchievementsPlaces = [
+    {
+        id: 15,
+        name: 'Тайная комната',
+        description: 'Сходить в красную уборную Зингера',
+        img: 'https://vk.com/sticker/1-2923-256',
+        isHidden: true,
+    },
+    {
+        id: 16,
+        name: 'Орлиное зрение',
+        description: 'Забраться на самую высокую точку в Зингере',
+        img: 'http://vk.com/sticker/1-13952-256',
+        isHidden: true,
+    },
+    {
+        id: 22,
+        name: 'Историческая фигня',
+        description: 'Найдется сдача с 5К?',
+        img: 'https://vk.com/sticker/1-3774-256',
+        isHidden: true,
+    },
+    {
+        id: 23,
+        name: 'Вперед Плотва!',
+        description: 'Залезть на коня и почувствовать себя Геральтом из Ривии',
+        img: 'http://vk.com/images/stickers/10262/256.png',
+        isHidden: true,
+    },
+    {
+        id: 24,
+        name: 'Соня',
+        description: 'Заночевать в Зингере',
+        img: 'https://vk.com/sticker/1-2464-256',
+        isHidden: true,
+    },
+]
+
+const AchievementsDepartments = [
+    
+    {
+        id: 18,
+        name: 'Как?',
+        description: 'Вы еще не слышали про VK Pay?',
+        img: 'https://vk.com/sticker/1-13367-256',
+        isHidden: true,
+    },
+    {
+        id: 19,
+        name: 'Олег!',
+        description: 'Где макет?',
+        img: 'https://vk.com/sticker/1-14133-256',
+        isHidden: true,
+    },
+    {
+        id: 20,
+        name: 'Пошумим б#@?ь!',
+        description: 'Скибиди-ва-па-па',
+        img: 'https://vk.com/images/stickers/10094/256.png',
+        isHidden: true,
+    },
+    
+]
+
+const AchievementsEpic = [
+    {
+        id: 14,
+        name: 'Fuck Yeah',
+        description: 'Собрать все ачивки',
+        img: 'https://vk.com/sticker/1-5088-256',
+        isHidden: true,
+    },
+]
 class Achievements extends React.Component {
 
     constructor(props) {
@@ -30,30 +221,97 @@ class Achievements extends React.Component {
     render() {
         let {id} = this.props;
         return (
-            <Panel id={id} theme="white">
-                <PanelHeader theme="alternate"
-                    //          left={
-                    // <HeaderButton onClick={() => {sessionStorage.removeItem("captcha"); this.props.go("register");}}>{osname === IOS ? <Icon28ChevronBack fill="#5181b8"/> :
-                    //     <Icon24Back fill="#5181b8"/>}</HeaderButton>}
+            <Panel id={id}>
+                <PanelHeader>Достижения</PanelHeader>
+                <Div><div class="categoryText">Квест от Олега</div></Div>
+                <Div>
+                <div class="settingsCard"
+                    style={{
+                    display: 'flex',
+                    marginTop: -10,
+                    borderRadius: 12,
+                    flexShrink: 0,
+                    flexDirection: 'column'
+                    }} 
                 >
-                    Достижения</PanelHeader>
-                <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
-                    <img src="" alt="CAPTCHA"/>
-                </Div>
-                <FormLayout>
-                    <Input pattern="\d*"
-                           // onChange={}
-                           // value={code}
-                           placeholder="000000"
-                           maxLength="6"
-                           type="tel"
-                           alignment="center"/>
-                    <Button
-                        // disabled={!this.state.isEnabled}
-                            // onClick={}
-                            size="xl">Отправить</Button>
-                </FormLayout>
+                    {AchievementsBasic.map(
+                    (item, index) => 
+                    <Achievement name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
+                    }
+                </div>
+                </Div>             
 
+                <Div><div class="categoryText">Братья наши меньшие</div></Div>
+                <Div>
+                <div class="settingsCard"
+                    style={{
+                    display: 'flex',
+                    marginTop: -10,
+                    borderRadius: 12,
+                    flexShrink: 0,
+                    flexDirection: 'column'
+                    }} 
+                >
+                    {AchievementsBrothers.map(
+                    (item, index) => 
+                    <Achievement name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
+                    }
+                </div>
+                </Div> 
+
+                <Div><div class="categoryText">Места</div></Div>
+                <Div>
+                <div class="settingsCard"
+                    style={{
+                    display: 'flex',
+                    marginTop: -10,
+                    borderRadius: 12,
+                    flexShrink: 0,
+                    flexDirection: 'column'
+                    }} 
+                >
+                    {AchievementsPlaces.map(
+                    (item, index) => 
+                    <Achievement name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
+                    }
+                </div>
+                </Div> 
+
+                <Div><div class="categoryText">Отделы</div></Div>
+                <Div>
+                <div class="settingsCard"
+                    style={{
+                    display: 'flex',
+                    marginTop: -10,
+                    borderRadius: 12,
+                    flexShrink: 0,
+                    flexDirection: 'column'
+                    }} 
+                >
+                    {AchievementsDepartments.map(
+                    (item, index) => 
+                    <Achievement name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
+                    }
+                </div>
+                </Div> 
+
+                <Div><div class="categoryText">Ультра редкая</div></Div>
+                <Div>
+                <div class="settingsCard"
+                    style={{
+                    display: 'flex',
+                    marginTop: -10,
+                    borderRadius: 12,
+                    flexShrink: 0,
+                    flexDirection: 'column'
+                    }} 
+                >
+                    {AchievementsEpic.map(
+                    (item, index) => 
+                    <Achievement name={item.name} description={item.description} isHidden={item.isHidden} img={item.img}/>)
+                    }
+                </div>
+                </Div> 
             </Panel>
         )
     }

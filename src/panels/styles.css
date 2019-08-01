@@ -33,14 +33,27 @@ body{
 
 
 .sub {
-    margin-left: auto;
     width: 25%;
     padding-bottom: 25%;
 }
 
+.sub2 {
+    width: 25%;
+    padding-bottom: 25%;
+    filter: blur(10px);
+}
+
+
 .headerText {
     font-weight: 600;
     font-size: 12pt;
+    color: #2975cc;
+}
+
+.categoryText {
+    font-weight: 600;
+    font-size: 18pt;
+    color: #2975cc;
 }
 
 

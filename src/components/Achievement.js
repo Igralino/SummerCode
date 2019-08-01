@@ -13,8 +13,7 @@ class Achievement extends Component {
             img: props.img ? props.img : "",
             name: props.name ? props.name : "",
             description: props.description ? props.description : "",
-            src: props.src ? props.src : null,
-            link: props.link ? props.link : null,
+            isHidden: props.isHidden ? props.isHidden : false,
         }
     }
 
@@ -30,7 +29,18 @@ class Achievement extends Component {
                   alignItems: 'center'
                 }}
               >
-                <div
+                {this.state.isHidden? 
+                   <div
+                   class='sub2'
+                   style={{
+                   background: ` url(${this.state.img})`,
+                   backgroundPosition: 'center',
+                   backgroundSize: 'cover',
+                   borderRadius: 12
+                   }}
+                   /> 
+                   : 
+                  <div
                   class='sub'
                   style={{
                   backgroundImage: `url(${this.state.img})`,
@@ -38,17 +48,19 @@ class Achievement extends Component {
                   backgroundSize: 'cover',
                   borderRadius: 12
                   }}
-                /> 
+                  /> 
+                }
+                
                 <div class='tab'>
                   <div
                     class='headerText'
                     style={{
-                      color: '#000000'
+                      marginLeft:20
                     }}
                   >
                     {this.state.name}
                   </div>
-                  <div>
+                  <div style={{marginLeft:20, color: '#C7CED4'}}>
                       {this.state.description}
                   </div>
                 </div>           
