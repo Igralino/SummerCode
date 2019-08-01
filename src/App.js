@@ -15,16 +15,22 @@ import Alexandrov from "./panels/Quest/Alexandrov";
 const MODAL_CARD_MONEY_SEND = 'money-send';
 
 
+import Achievements from './panels/Achievements';
 class App extends React.Component {
     constructor(props) {
         super(props);
-        if (localStorage.getItem("activePanel") === null) {
-            localStorage.setItem("activePanel", "begin");
+        if (localStorage.getItem("activeQuestPanel") === null) {
+            localStorage.setItem("activeQuestPanel", "questPanel");
+        }
+        if (localStorage.getItem("activeAchievementsPanel") === null) {
+            localStorage.setItem("activeAchievementsPanel", "achievements");
         }
         this.state = {
+            activeQuestPanel: localStorage.getItem("activeQuestPanel"),
+            activeAchievementsPanel: localStorage.getItem("activeAchievementsPanel"),
+
             activeModal: null,
             modalHistory: [],
-            activePanel: localStorage.getItem("activePanel"),
             authToken: null,
             captchaImage: null,
             popout: null,
@@ -103,17 +109,30 @@ class App extends React.Component {
                         data-story="quest"
                         text="Квест"
                     ><Icon28More/></TabbarItem>
+                    <TabbarItem
+                        onClick={this.onStoryChange}
+                        selected={this.state.activeStory === 'achievements'}
+                        data-story="achievements"
+                        text="Достижения"
+                    ><Icon28More/></TabbarItem>
                 </Tabbar>
             }>
-                <View id="quest" popout={this.state.popout} activePanel={this.state.activePanel} modal={modal}>
+                <View id="quest" popout={this.state.popout} activePanel={this.state.activeQuestPanel}>
 
                     <BeginQuest
-                        id="begin"
+                        id="questPanel"
                         go={this.go}
                         popoutChange={this.popoutChange}
                         modalChange={this.setActiveModal}
                     />
+                </View>
+                <View id="achievements" popout={this.state.popout} activePanel={this.state.activeAchievementsPanel}>
 
+                    <Achievements
+                        id="achievements"
+                        go={this.go}
+                        popoutChange={this.popoutChange}
+                    />
                     <Alexandrov
                         id="alexandrov"
                         go={this.go}
