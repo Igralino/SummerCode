@@ -33,12 +33,8 @@ class Lunch extends React.Component {
         let {id} = this.props;
         return (
             <Panel id={id} theme="white">
-                <PanelHeader theme="alternate"
-                    //          left={
-                    // <HeaderButton onClick={() => {sessionStorage.removeItem("captcha"); this.props.go("register");}}>{osname === IOS ? <Icon28ChevronBack fill="#5181b8"/> :
-                    //     <Icon24Back fill="#5181b8"/>}</HeaderButton>}
-                >
-                    Квест 2/14</PanelHeader>
+                <Div><div className="categoryText">Квест 8/14</div></Div>
+
                 <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                     <br/> <br/>
                     <img width="170" height="170" src="http://vk.com/sticker/1-14144-256" alt="Alexandrov"/>
