@@ -26,7 +26,9 @@ class Kupol extends React.Component {
 
     constructor(props) {
         super(props);
-
+        this.state = {
+            isFinished: this.props.isFinished
+        }
     }
 
 
@@ -45,7 +47,9 @@ class Kupol extends React.Component {
                         Купол Зингера воистину прекрасен в это время суток. </Div>
 
                     <Button size="xl"
-                            onClick={() => this.props.go("final")}>
+                            onClick={() => {this.props.go("final");
+                            this.setState({isFinished:!this.state.isFinished});  
+                            this.props.unlock(!this.state.isFinished)}}>
                         QR
                     </Button>
                 </FormLayout>

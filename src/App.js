@@ -53,7 +53,8 @@ class App extends React.Component {
             authToken: null,
             captchaImage: null,
             popout: null,
-            activeStory: "quest"
+            activeStory: "quest",
+            isFinished: false
         };
         this.modalBack = () => {
             this.setActiveModal(this.state.modalHistory[this.state.modalHistory.length - 2]);
@@ -98,7 +99,9 @@ class App extends React.Component {
         this.setState({activeQuestPanel: activeQuestPanel});
         localStorage.setItem("activeQuestPanel", activeQuestPanel);
     };
-
+    unlock = (value1) => {
+        this.setState({isFinished:value1})
+    }
     onStoryChange(e) {
         connect.send("VKWebAppTapticImpactOccurred", {"style": "light"});
         this.setState({activeStory: e.currentTarget.dataset.story})
@@ -232,6 +235,8 @@ class App extends React.Component {
                         />
                         <Kupol
                             id="kupol"
+                            isFinished={this.state.isFinished}
+                            unlock={this.unlock}
                             go={this.goQuest}
                             popoutChange={this.popoutChange}
                             modalChange={this.setActiveModal}
@@ -246,6 +251,7 @@ class App extends React.Component {
                 <View id="achievements" popout={this.state.popout} activePanel={this.state.activeAchievementsPanel}>
 
                     <Achievements
+                        isFinished={this.state.isFinished}
                         id="achievements"
                         go={this.go}
                         popoutChange={this.popoutChange}

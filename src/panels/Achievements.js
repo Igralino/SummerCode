@@ -214,7 +214,7 @@ class Achievements extends React.Component {
         super(props);
 
          this.state = {
-            isFinished: true
+            isFinished: this.props.isFinished
          }
     }
     achievementsRender(){

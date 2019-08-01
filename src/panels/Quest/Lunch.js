@@ -62,7 +62,7 @@ class Lunch extends React.Component {
                     </Div>
                     <Button size="xl"
                             onClick={() => {
-                                connect.send("VKWebAppGetFriends", {});
+                                this.props.go("zozh")
                             }}>
                         Подкачаться
                     </Button>
