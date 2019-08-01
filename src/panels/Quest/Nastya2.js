@@ -4,30 +4,31 @@ import PropTypes from 'prop-types';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel'
 import Div from '@vkontakte/vkui/dist/components/Div/Div'
 import HeaderButton from '@vkontakte/vkui/dist/components/HeaderButton/HeaderButton'
+import FormStatus from '@vkontakte/vkui/dist/components/FormStatus/FormStatus'
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader'
 import FormLayout from '@vkontakte/vkui/dist/components/FormLayout/FormLayout'
 import Input from '@vkontakte/vkui/dist/components/Input/Input'
 import Link from '@vkontakte/vkui/dist/components/Link/Link'
 import Button from '@vkontakte/vkui/dist/components/Button/Button'
+import Radio from '@vkontakte/vkui/dist/components/Radio/Radio'
 import Alert from '@vkontakte/vkui/dist/components/Alert/Alert'
 import Icon24Back from '@vkontakte/icons/dist/24/back'
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import {platform, IOS} from '@vkontakte/vkui';
+import connect from "@vkontakte/vkui-connect";
+
 // import {urlBack} from "../../App";
-import "../styles.css";
 
 
 const osname = platform();
 
-class Alexandrov extends React.Component {
+class Nastya2 extends React.Component {
 
     constructor(props) {
         super(props);
 
-        // this.state = {
-        //
-        // }
     }
+
 
     render() {
         let {id} = this.props;
@@ -38,22 +39,20 @@ class Alexandrov extends React.Component {
                     // <HeaderButton onClick={() => {sessionStorage.removeItem("captcha"); this.props.go("register");}}>{osname === IOS ? <Icon28ChevronBack fill="#5181b8"/> :
                     //     <Icon24Back fill="#5181b8"/>}</HeaderButton>}
                 >
-                    Квест 2/14</PanelHeader>
+                    Квест 3/14</PanelHeader>
                 <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                     <br/> <br/>
-                    <img width="170" height="170" src="https://vk.com/sticker/1-14153-256" alt="Alexandrov"/>
+                    <img width="170" height="170" src="https://vk.com/sticker/1-14085-256" alt="Begin"/>
                 </Div>
                 <FormLayout>
                     <Div align="center">
-                        Итак, начнем с самого главного места, куда стекаются толпы работников ежедневно, чтобы
-                        поговорить по душам, перекусить и просто хорошо провести время - кухни 3 этажа. Отправляйся туда
-                        и найди там Александрова
+                        <h1>Интересный факт:</h1>
+                        Конкурс, положивший начало VK Testers, родился всего за 3 дня.
                     </Div>
+
                     <Button size="xl"
-                            onClick={()=>{
-                                this.props.modalChange('money-send');
-                                this.props.go("nastya")}}>
-                        QR
+                            onClick={() => this.props.go("dambo")}>
+                        Далее
                     </Button>
                 </FormLayout>
 
@@ -62,11 +61,11 @@ class Alexandrov extends React.Component {
     }
 }
 
-Alexandrov.propTypes = {
+Nastya2.propTypes = {
     id: PropTypes.string.isRequired,
     go: PropTypes.func.isRequired,
     popoutChange: PropTypes.func.isRequired,
     modalChange: PropTypes.func.isRequired
 };
 
-export default Alexandrov;
+export default Nastya2;
