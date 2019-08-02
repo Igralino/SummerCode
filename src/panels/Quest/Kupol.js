@@ -3,19 +3,11 @@ import PropTypes from 'prop-types';
 // import axios from "axios";
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel'
 import Div from '@vkontakte/vkui/dist/components/Div/Div'
-import HeaderButton from '@vkontakte/vkui/dist/components/HeaderButton/HeaderButton'
-import FormStatus from '@vkontakte/vkui/dist/components/FormStatus/FormStatus'
-import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader'
 import FormLayout from '@vkontakte/vkui/dist/components/FormLayout/FormLayout'
-import Input from '@vkontakte/vkui/dist/components/Input/Input'
-import Link from '@vkontakte/vkui/dist/components/Link/Link'
 import Button from '@vkontakte/vkui/dist/components/Button/Button'
-import Radio from '@vkontakte/vkui/dist/components/Radio/Radio'
-import Alert from '@vkontakte/vkui/dist/components/Alert/Alert'
-import Icon24Back from '@vkontakte/icons/dist/24/back'
-import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import {platform, IOS} from '@vkontakte/vkui';
 import connect from "@vkontakte/vkui-connect";
+import Icon24Qr from '@vkontakte/icons/dist/24/qr';
 
 // import {urlBack} from "../../App";
 
@@ -50,7 +42,7 @@ class Kupol extends React.Component {
                             onClick={() => {this.props.go("final");
                             this.setState({isFinished:!this.state.isFinished});  
                             this.props.unlock(!this.state.isFinished)}}>
-                        QR
+                        С этим не поспоришь
                     </Button>
                 </FormLayout>
 
