@@ -4,15 +4,15 @@ import View from '@vkontakte/vkui/dist/components/View/View';
 import Epic from '@vkontakte/vkui/dist/components/Epic/Epic';
 import Tabbar from '@vkontakte/vkui/dist/components/Tabbar/Tabbar';
 import TabbarItem from '@vkontakte/vkui/dist/components/TabbarItem/TabbarItem';
+import Alert from '@vkontakte/vkui/dist/components/Alert/Alert';
 import Icon28Game from '@vkontakte/icons/dist/28/game';
 import Icon28Favorite from '@vkontakte/icons/dist/28/favorite';
 import Icon28User from '@vkontakte/icons/dist/28/user';
 import '@vkontakte/vkui/dist/vkui.css';
 import ModalRoot from "@vkontakte/vkui/dist/components/ModalRoot/ModalRoot";
 import ModalCard from "@vkontakte/vkui/dist/components/ModalCard/ModalCard";
-import Avatar from "@vkontakte/vkui/dist/components/Avatar/Avatar";
-import Icon56MoneyTransferOutline from '@vkontakte/icons/dist/56/money_transfer_outline';
-
+import ScreenSpinner from "@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner";
+import axios from "axios";
 import BeginQuest from './panels/Quest/BeginQuest';
 import Alexandrov from "./panels/Quest/Alexandrov";
 import Nastya from "./panels/Quest/Nastya";
@@ -41,7 +41,7 @@ import {
     AchievementsPlaces
 } from './panels/Achievements';
 
-const MODAL_CARD_MONEY_SEND = 'money-send';
+export const urlBack = "https://clever-quail-35.localtunnel.me/hackaton/";
 
 
 class App extends React.Component {
@@ -78,7 +78,7 @@ class App extends React.Component {
             authToken: null,
             captchaImage: null,
             lastScanned: parseInt(localStorage.getItem("lastScanned")),
-            popout: null,
+            popout: <ScreenSpinner/>,
             activeStory: "quest",
             isFinished: false
         };
@@ -115,6 +115,7 @@ class App extends React.Component {
         for (ach in AchievementsBasic) {
             if (AchievementsBasic[ach].hash === hash) {
                 // if (AchievementsBasic[ach].id===id) {
+                    this.sendData(this.state.lastScanned+1);
                     localStorage.setItem("lastScanned", this.state.lastScanned+1);
                     this.setState({lastScanned: this.state.lastScanned+1});
 
@@ -150,9 +151,6 @@ class App extends React.Component {
                         case "complete":
                             this.goQuest("final");
                             break;
-
-
-
                     }
                     if (hash === "byalex") {
                         this.goQuest("nastya");
@@ -208,7 +206,63 @@ class App extends React.Component {
         }
     };
 
+    sendData = (number) => {
+        const queryParams = window.location.search;
+        const userURL = urlBack + "lastScanned";
+        let formData = {
+            lastScanned: number,
+            vkParams: queryParams
+        };
+        formData = JSON.stringify(formData);
+        axios({
+            url: userURL, method: "post", data: formData, headers: {
+                'Content-Type': 'application/json'
+            }, timeout: 7000
+        }).then(response => {
+            console.log("ZBS");
+        }).catch(error => {
+
+                this.setState({
+                    popout: (<Alert
+                    actionsLayout="vertical"
+                    actions={[{
+                        title: 'Отмена',
+                        autoclose: true,
+                        style: 'cancel'
+                    }]}
+                    onClose={() => this.setState({popout: null})}>
+                    <h2>Сервис временно недоступен</h2>
+                    <p>Повторите попытку позднее</p>
+                </Alert>)})
+        }).then(() => {
+            this.setState({loading: false});
+        });
+    };
+
     componentDidMount() {
+        const queryParams = window.location.search;
+        const userURL = urlBack + "userInfo" + queryParams;
+        axios({url: userURL, method: "get", timeout: 7000}).then(response => {
+            this.setState({popout: null});
+            this.setState({activeQuestPanel: response.data["screen"]});
+            this.setState({lastScanned: response.data["lastScanned"]});
+            localStorage.setItem("activeQuestPanel", response.data["screen"]);
+        }).catch(error => {
+                this.setState({
+                    popout: (<Alert
+                        actionsLayout="vertical"
+                        actions={[{
+                            title: 'Отмена',
+                            autoclose: true,
+                            style: 'cancel'
+                        }]}
+                        onClose={() => this.setState({popout: null})}>
+                        <h2>Сервис временно недоступен</h2>
+                        <p>Повторите попытку позднее</p>
+                    </Alert>)})
+        }).then(() => {
+        });
+
         connect.subscribe((e) => {
             switch (e.detail.type) {
                 case 'VKWebAppGetUserInfoResult':
@@ -233,6 +287,34 @@ class App extends React.Component {
     goQuest = (activeQuestPanel) => {
         this.setState({activeQuestPanel: activeQuestPanel});
         localStorage.setItem("activeQuestPanel", activeQuestPanel);
+
+        const queryParams = window.location.search;
+        const userURL = urlBack + "screen";
+        let formData = {
+            screen: activeQuestPanel,
+            vkParams: queryParams
+        };
+        formData = JSON.stringify(formData);
+        axios({
+            url: userURL, method: "post", data: formData, headers: {
+                'Content-Type': 'application/json'
+            }, timeout: 15000
+        }).then(response => {
+            console.log("ZBS");
+        }).catch(error => {
+                this.setState({
+                    popout: (<Alert
+                        actionsLayout="vertical"
+                        actions={[{
+                            title: 'Отмена',
+                            autoclose: true,
+                            style: 'cancel'
+                        }]}
+                        onClose={() => this.setState({popout: null})}>
+                        <h2>Сервис временно недоступен</h2>
+                        <p>Повторите попытку позднее</p>
+                    </Alert>)})
+        }).then(() => {});
     };
 
     unlock = (value1) => {

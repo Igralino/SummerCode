@@ -1,7 +1,7 @@
 {
   "homepage": "https://Igralino.github.io/SummerCode/",
-  "name": "Frontend",
-  "version": "1.0.0",
+  "name": "Service-Olega",
+  "version": "2.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,7 @@
     "@vkontakte/icons": "^1.7.0",
     "@vkontakte/vkui": "^2.23.6",
     "@vkontakte/vkui-connect": "^1.5.0",
+    "axios": "^0.19.0",
     "babel-eslint": "^9.0.0",
     "chalk": "^2.4.2",
     "core-js": "^2.6.9",

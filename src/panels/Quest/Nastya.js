@@ -51,7 +51,7 @@ class Nastya extends React.Component {
                 </Div>
                 <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                     <br/> <br/>
-                    <img width="170" height="170" src="http://vk.com/sticker/1-14153-256" alt="Begin"/>
+                    <img width="170" height="170" src="https://vk.com/sticker/1-14153-256" alt="Begin"/>
                 </Div>
                 <FormLayout>
                     <Div align="center">

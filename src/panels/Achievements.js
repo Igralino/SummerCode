@@ -38,7 +38,7 @@ const AchievementsBasic=[
         id: 3,
         name: 'Won’t fix',
         description: 'Сходить в крыло QA',
-        img: 'https://vk.com/sticker/1-14085-256',
+        img: 'https://vk.com/sticker/1-14107-256',
         isHidden: false,
         hash: 'qa'
     },
@@ -46,7 +46,7 @@ const AchievementsBasic=[
         id: 4,
         name: 'Дамбо',
         description: 'Попыхтим?',
-        img: 'http://vk.com/sticker/1-13769-256-9',
+        img: 'https://vk.com/sticker/1-13769-256-9',
         isHidden: false,
         hash: 'dambo'
     },
@@ -54,7 +54,7 @@ const AchievementsBasic=[
         id: 5,
         name: 'Го катку, я создал',
         description: 'Найди код в игровой комнате?',
-        img: 'http://vk.com/sticker/1-13935-256',
+        img: 'https://vk.com/sticker/1-13935-256',
         isHidden: false,
         hash: 'gamemode'
     },
@@ -62,7 +62,7 @@ const AchievementsBasic=[
         id: 6,
         name: 'По НаЛанчу?',
         description: 'Позвать друга на обед',
-        img: 'http://vk.com/sticker/1-13831-256',
+        img: 'https://vk.com/sticker/1-13831-256',
         isHidden: false,
         hash: 'golunch'
     },
@@ -70,7 +70,7 @@ const AchievementsBasic=[
         id: 7,
         name: 'За ЗОЖ!',
         description: 'Подняться пешком на 6 этаж',
-        img: 'http://vk.com/images/stickers/7243/256.png',
+        img: 'https://vk.com/images/stickers/7243/256.png',
         isHidden: false,
         hash: 'zoj'
     },
@@ -78,7 +78,7 @@ const AchievementsBasic=[
         id: 8,
         name: 'Я МЕГАЗВЕЗДА',
         description: 'Найти стену с автографами известных личностей',
-        img: 'http://vk.com/images/stickers/5389/256.png',
+        img: 'https://vk.com/images/stickers/5389/256.png',
         isHidden: false,
         hash: 'superstar'
     },
@@ -86,7 +86,7 @@ const AchievementsBasic=[
         id: 9,
         name: 'Настоящий артефакт эпохи',
         description: 'Найти полотно пиксель-баттла',
-        img: 'http://vk.com/images/stickers/10223/256.png',
+        img: 'https://vk.com/images/stickers/10223/256.png',
         isHidden: false,
         hash: 'pixel'
     },
@@ -145,7 +145,7 @@ const AchievementsBrothers = [
         id: 25,
         name: 'Don’t panic',
         description: 'Пройти путь джедая',
-        img: 'http://vk.com/images/stickers/5551/256.png',
+        img: 'https://vk.com/images/stickers/5551/256.png',
         isHidden: true,
         hash: 'adminpanic'
     },
@@ -180,7 +180,7 @@ const AchievementsPlaces = [
         id: 23,
         name: 'Вперед, Плотва!',
         description: 'Почувствовать себя Геральтом из Ривии',
-        img: 'http://vk.com/images/stickers/10262/256.png',
+        img: 'https://vk.com/images/stickers/10262/256.png',
         isHidden: true,
         hash: 'pony'
     },
@@ -356,7 +356,7 @@ class Achievements extends React.Component {
         let {id} = this.props;
         return (
             <Panel id={id}>
-                {this.state.isFinished ? this.achievementsRender() : this.errorRender()}
+                { this.achievementsRender() }
             </Panel>
         )
     }

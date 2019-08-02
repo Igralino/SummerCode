@@ -35,10 +35,11 @@ class Alexandrov extends React.Component {
                         и найди там Александрова
                     </Div>
                     <Button component="a" href="https://vk.com/camera" before={<Icon24Qr/>}
-                            onclick={()=> this.props.go("nastya")}
+                            onClick={()=> this.props.go("nastya")}
                             size="xl">
                         Открыть камеру VK
                     </Button>
+                   
                 </FormLayout>
 
             </Panel>
