@@ -81,7 +81,6 @@ class App extends React.Component {
 
     setActiveModal = (activeModal) => {
         activeModal = activeModal || null;
-        console.log(this.state.modalHistory);
         let modalHistory = this.state.modalHistory ? [...this.state.modalHistory] : [];
 
         if (activeModal === null) {
@@ -160,7 +159,6 @@ class App extends React.Component {
                     this.setState({fetchedUser: e.detail.data});
                     break;
                 default:
-                    console.log(e.detail.type);
             }
         });
         connect.send('VKWebAppGetUserInfo', {});
@@ -171,8 +169,7 @@ class App extends React.Component {
 
         let achievement = this.findAchievement(hash);
         if (achievement) {
-            this.setActiveModal(achievement.hash);
-            console.log(achievement.hash);
+            this.setActiveModal("someHash");
             this.setState({activeAchievement: achievement});
         }
     }
@@ -197,7 +194,6 @@ class App extends React.Component {
 
     render() {
         const achievement = this.state.activeAchievement;
-        console.log(achievement, 123123123);
         const modal = (<ModalRoot activeModal={this.state.activeModal}>
             <ModalCard
                 id={"someHash"}
