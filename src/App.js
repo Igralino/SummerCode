@@ -31,6 +31,13 @@ import Kupol from "./panels/Quest/Kupol";
 import Final from "./panels/Quest/Final";
 
 import Achievements from './panels/Achievements';
+import {
+    AchievementsBasic,
+    AchievementsDepartments,
+    AchievementsEpic,
+    AchievementsBrothers,
+    AchievementsPlaces
+} from './panels/Achievements';
 
 const MODAL_CARD_MONEY_SEND = 'money-send';
 
@@ -48,6 +55,14 @@ class App extends React.Component {
             activeQuestPanel: localStorage.getItem("activeQuestPanel"),
             activeAchievementsPanel: localStorage.getItem("activeAchievementsPanel"),
 
+            activeAchievement: {
+                id: -1,
+                name: '',
+                description: '',
+                img: '',
+                isHidden: false,
+                hash: 'empty'
+            },
             modalHistory: [],
             activeModal: null,
             authToken: null,
@@ -82,6 +97,35 @@ class App extends React.Component {
         });
     };
 
+    findAchievement = (hash) => {
+        var ach;
+        for (ach in AchievementsBasic) {
+            if (AchievementsBasic[ach].hash === hash) {
+                return AchievementsBasic[ach];
+            }
+        }
+        for (ach in AchievementsDepartments) {
+            if (AchievementsDepartments[ach].hash === hash) {
+                return AchievementsDepartments[ach];
+            }
+        }
+        for (ach in AchievementsEpic) {
+            if (AchievementsEpic[ach].hash === hash) {
+                return AchievementsEpic[ach];
+            }
+        }
+        for (ach in AchievementsBrothers) {
+            if (AchievementsBrothers[ach].hash === hash) {
+                return AchievementsBrothers[ach];
+            }
+        }
+        for (ach in AchievementsPlaces) {
+            if (AchievementsPlaces[ach].hash === hash) {
+                return AchievementsPlaces[ach];
+            }
+        }
+    };
+
     componentDidMount() {
         connect.subscribe((e) => {
             switch (e.detail.type) {
@@ -93,15 +137,29 @@ class App extends React.Component {
             }
         });
         connect.send('VKWebAppGetUserInfo', {});
+        let hash = window.location.hash;
+        while (hash.charAt(0) === '#') {
+            hash = hash.substr(1);
+        }
+
+        let achievement = this.findAchievement(hash);
+        if (achievement) {
+            this.setActiveModal("someHash");
+            this.setState({activeAchievement: achievement});
+            console.log("asdadas");
+        }
+
     }
 
     goQuest = (activeQuestPanel) => {
         this.setState({activeQuestPanel: activeQuestPanel});
         localStorage.setItem("activeQuestPanel", activeQuestPanel);
     };
+
     unlock = (value1) => {
-        this.setState({isFinished:value1})
-    }
+        this.setState({isFinished: value1})
+    };
+
     onStoryChange(e) {
         connect.send("VKWebAppTapticImpactOccurred", {"style": "light"});
         this.setState({activeStory: e.currentTarget.dataset.story})
@@ -112,17 +170,20 @@ class App extends React.Component {
     };
 
     render() {
+        const achievement = this.state.activeAchievement;
+        console.log(achievement, 123123123);
         const modal = (<ModalRoot activeModal={this.state.activeModal}>
             <ModalCard
-                id="room"
+                id={"someHash"}
                 onClose={() => this.setActiveModal(null)}
-            ><div align="center" >
-                <h1 className="achievementCard">Новое достижение!</h1>
-                <img className="achievementImg" width="80" height="80" src="https://vk.com/sticker/1-2923-128"/>
-                <div className="achievementSubtitle">Тайная комната</div>
-                <div>Сходить в туалет на 7 этаже Зингера</div>
-                <br/>
-            </div>
+            >
+                <div align="center">
+                    <h1 className="achievementCard">Новое достижение!</h1>
+                    <img className="achievementImg" width="80" height="80" src={achievement.img}/>
+                    <div className="achievementSubtitle">{achievement.name}</div>
+                    <div>{achievement.description}</div>
+                    <br/>
+                </div>
             </ModalCard>
         </ModalRoot>);
         return (
@@ -149,104 +210,104 @@ class App extends React.Component {
                 </Tabbar>
             }>
                 <View id="quest" popout={this.state.popout} activePanel={this.state.activeQuestPanel} modal={modal}>
-                        <BeginQuest
-                            id="questPanel"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Alexandrov
-                            id="alexandrov"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Nastya
-                            id="nastya"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Nastya2
-                            id="nastya2"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Dambo
-                            id="dambo"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Dambo2
-                            id="dambo2"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Lampas
-                            id="lampas"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Lunch
-                            id="lunch"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Zozh
-                            id="zozh"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Stars
-                            id="stars"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Pixel
-                            id="pixel"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Virus
-                            id="virus"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Hell
-                            id="hell"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Hero
-                            id="hero"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Kupol
-                            id="kupol"
-                            isFinished={this.state.isFinished}
-                            unlock={this.unlock}
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
-                        <Final
-                            id="final"
-                            go={this.goQuest}
-                            popoutChange={this.popoutChange}
-                            modalChange={this.setActiveModal}
-                        />
+                    <BeginQuest
+                        id="questPanel"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Alexandrov
+                        id="alexandrov"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Nastya
+                        id="nastya"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Nastya2
+                        id="nastya2"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Dambo
+                        id="dambo"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Dambo2
+                        id="dambo2"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Lampas
+                        id="lampas"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Lunch
+                        id="lunch"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Zozh
+                        id="zozh"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Stars
+                        id="stars"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Pixel
+                        id="pixel"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Virus
+                        id="virus"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Hell
+                        id="hell"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Hero
+                        id="hero"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Kupol
+                        id="kupol"
+                        isFinished={this.state.isFinished}
+                        unlock={this.unlock}
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
+                    <Final
+                        id="final"
+                        go={this.goQuest}
+                        popoutChange={this.popoutChange}
+                        modalChange={this.setActiveModal}
+                    />
                 </View>
                 <View id="achievements" popout={this.state.popout} activePanel={this.state.activeAchievementsPanel}>
 

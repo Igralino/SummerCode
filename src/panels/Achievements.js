@@ -139,7 +139,7 @@ const AchievementsBrothers = [
         description: 'Что-то про VK Coin',
         img: 'https://vk.com/sticker/1-3774-256',
         isHidden: true,
-        hash: 'musicroom'
+        hash: 'hs'
     },
     {
         id: 25,
@@ -172,7 +172,7 @@ const AchievementsPlaces = [
         id: 22,
         name: 'Историческая фигня',
         description: 'Найдется сдача с 5К?',
-        img: 'https://vk.com/sticker/1-3774-256',
+        img: 'https://vk.com/sticker/1-8484-128',
         isHidden: true,
         hash: 'durov'
     },
@@ -369,3 +369,4 @@ Achievements.propTypes = {
 };
 
 export default Achievements;
+export {AchievementsBasic, AchievementsDepartments, AchievementsEpic, AchievementsBrothers, AchievementsPlaces};
