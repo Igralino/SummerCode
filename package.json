@@ -1,11 +1,14 @@
 {
+  "homepage": "https://Igralino.github.io/SummerCode/",
   "name": "Frontend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "cross-env PORT=10888 react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -22,10 +25,12 @@
     "babel-eslint": "^9.0.0",
     "chalk": "^2.4.2",
     "core-js": "^2.6.9",
+    "gh-pages": "^2.1.0",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "typescript": "^3.5.3"
   },
   "browserslist": [
     ">0.2%",

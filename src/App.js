@@ -67,6 +67,7 @@ class App extends React.Component {
             activeModal: null,
             authToken: null,
             captchaImage: null,
+            lastScanned: 1,
             popout: null,
             activeStory: "quest",
             isFinished: false
@@ -99,9 +100,35 @@ class App extends React.Component {
 
     findAchievement = (hash) => {
         var ach;
+        let id = this.state.lastScanned;
         for (ach in AchievementsBasic) {
             if (AchievementsBasic[ach].hash === hash) {
-                return AchievementsBasic[ach];
+                if (AchievementsBasic[ach].id===id) {
+                    return AchievementsBasic[ach];
+                }
+                if (AchievementsBasic[ach].id>id) {
+                    return {
+                        id: -1,
+                        name: '',
+                        title: 'СЛИШКОМ РАНО',
+                        description: 'ПАДАЖЖИ',
+                        img: 'https://vk.com/sticker/1-14085-256',
+                        isHidden: false,
+                        hash: 'notYet'
+                    }
+                }
+                if (AchievementsBasic[ach].id<id) {
+                    return {
+                        id: 999999,
+                        name: '',
+                        title: 'Уже получил',
+                        description: 'ХВАТИТ',
+                        img: 'https://vk.com/sticker/1-14085-256',
+                        isHidden: false,
+                        hash: 'already'
+                    }
+                }
+
             }
         }
         for (ach in AchievementsDepartments) {
@@ -144,11 +171,10 @@ class App extends React.Component {
 
         let achievement = this.findAchievement(hash);
         if (achievement) {
-            this.setActiveModal("someHash");
+            this.setActiveModal(achievement.hash);
+            console.log(achievement.hash);
             this.setState({activeAchievement: achievement});
-            console.log("asdadas");
         }
-
     }
 
     goQuest = (activeQuestPanel) => {
@@ -178,7 +204,7 @@ class App extends React.Component {
                 onClose={() => this.setActiveModal(null)}
             >
                 <div align="center">
-                    <h1 className="achievementCard">Новое достижение!</h1>
+                    <h1 className="achievementCard">{achievement.title ? achievement.title : "Новое достижение!"}</h1>
                     <img className="achievementImg" width="80" height="80" src={achievement.img}/>
                     <div className="achievementSubtitle">{achievement.name}</div>
                     <div>{achievement.description}</div>

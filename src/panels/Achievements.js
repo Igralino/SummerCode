@@ -122,7 +122,7 @@ const AchievementsBasic=[
         isHidden: false,
         hash: 'complete'
     },
-]
+];
 
 const AchievementsBrothers = [
     {
@@ -149,7 +149,7 @@ const AchievementsBrothers = [
         isHidden: true,
         hash: 'adminpanic'
     },
-]
+];
 
 const AchievementsPlaces = [
     {
@@ -192,7 +192,7 @@ const AchievementsPlaces = [
         isHidden: true,
         hash: 'somesleep'
     },
-]
+];
 
 const AchievementsDepartments = [
     
@@ -221,7 +221,7 @@ const AchievementsDepartments = [
         hash: 'musicroom'
     },
     
-]
+];
 
 const AchievementsEpic = [
     {
