@@ -31,6 +31,8 @@ import Kupol from "./panels/Quest/Kupol";
 import Final from "./panels/Quest/Final";
 
 import Achievements from './panels/Achievements';
+import Top from './panels/Top';
+
 import {
     AchievementsBasic,
     AchievementsDepartments,
@@ -54,9 +56,14 @@ class App extends React.Component {
         if (localStorage.getItem("lastScanned") === null) {
             localStorage.setItem("lastScanned", "1");
         }
+        if (localStorage.getItem("activeTopPanel") === null) {
+            localStorage.setItem("activeTopPanel", "top");
+        }
         this.state = {
             activeQuestPanel: localStorage.getItem("activeQuestPanel"),
             activeAchievementsPanel: localStorage.getItem("activeAchievementsPanel"),
+            activeTopPanel: localStorage.getItem("activeTopPanel"),
+
 
             activeAchievement: {
                 id: -1,
@@ -385,6 +392,15 @@ class App extends React.Component {
                     <Achievements
                         isFinished={this.state.isFinished}
                         id="achievements"
+                        go={this.go}
+                        popoutChange={this.popoutChange}
+                    />
+                </View>
+                <View id="top" popout={this.state.popout} activePanel={this.state.activeTopPanel}>
+
+                    <Top
+                        isFinished={this.state.isFinished}
+                        id="top"
                         go={this.go}
                         popoutChange={this.popoutChange}
                     />
