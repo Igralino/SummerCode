@@ -39,8 +39,8 @@ class Dambo2 extends React.Component {
                         Это одно из самых популярных мест в Зингере!
                     </Div>
 
-                    <Button component="a" href="https://vk.com/camera" before={<Icon24Qr/>} size="xl">
-                        Открыть камеру VK
+                    <Button  size="xl" onClick={()=>this.props.go("lampas")}>
+                        Далее
                     </Button>
                 </FormLayout>
 

@@ -37,6 +37,7 @@ class Zozh extends React.Component {
     handleSubmit = () => {
         if (this.state.answerID === "yes") {
             this.setState({goodSubmitted: true});
+            this.props.modalChange("zoj");
         } else {
             this.setState({badSubmitted: true});
         }
@@ -83,8 +84,9 @@ class Zozh extends React.Component {
                             onClick={this.handleSubmit}>
                         Ииии...
                     </Button>}
-                    {(this.state.goodSubmitted || this.state.badSubmitted) && <Button component="a" href="https://vk.com/camera" before={<Icon24Qr/>} size="xl">
-                        Открыть камеру VK
+                    {(this.state.goodSubmitted || this.state.badSubmitted) &&
+                    <Button onClick={() => this.props.go("stars")} size="xl">
+                        Далее
                     </Button>}
                 </FormLayout>
 

@@ -51,6 +51,9 @@ class App extends React.Component {
         if (localStorage.getItem("activeAchievementsPanel") === null) {
             localStorage.setItem("activeAchievementsPanel", "achievements");
         }
+        if (localStorage.getItem("lastScanned") === null) {
+            localStorage.setItem("lastScanned", "1");
+        }
         this.state = {
             activeQuestPanel: localStorage.getItem("activeQuestPanel"),
             activeAchievementsPanel: localStorage.getItem("activeAchievementsPanel"),
@@ -67,7 +70,7 @@ class App extends React.Component {
             activeModal: null,
             authToken: null,
             captchaImage: null,
-            lastScanned: 1,
+            lastScanned: parseInt(localStorage.getItem("lastScanned")),
             popout: null,
             activeStory: "quest",
             isFinished: false
@@ -99,12 +102,58 @@ class App extends React.Component {
 
     findAchievement = (hash) => {
         var ach;
+
         let id = this.state.lastScanned;
+        console.log(id);
         for (ach in AchievementsBasic) {
             if (AchievementsBasic[ach].hash === hash) {
-                if (AchievementsBasic[ach].id===id) {
+                // if (AchievementsBasic[ach].id===id) {
+                    localStorage.setItem("lastScanned", this.state.lastScanned+1);
+                    this.setState({lastScanned: this.state.lastScanned+1});
+
+
+                    switch (hash) {
+                        case "byalex":
+                            this.goQuest("nastya");
+                            break;
+                        case "qa":
+                            this.goQuest("nastya2");
+                            break;
+                        case "dambo":
+                            this.goQuest("dambo2");
+                            break;
+                        case "gamemode":
+                            this.goQuest("lunch");
+                            break;
+                        case "superstar":
+                            this.goQuest("pixel");
+                            break;
+                        case "pixel":
+                            this.goQuest("virus");
+                            break;
+                        case "admins":
+                            this.goQuest("hell");
+                            break;
+                        case "bdsm":
+                            this.goQuest("hero");
+                            break;
+                        case "kazansky":
+                            this.goQuest("kupol");
+                            break;
+                        case "complete":
+                            this.goQuest("final");
+                            break;
+
+
+
+                    }
+                    if (hash === "byalex") {
+                        this.goQuest("nastya");
+                    }
+
+
                     return AchievementsBasic[ach];
-                }
+                // }
                 if (AchievementsBasic[ach].id>id) {
                     return {
                         id: -1,

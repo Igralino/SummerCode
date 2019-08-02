@@ -34,7 +34,9 @@ class Alexandrov extends React.Component {
                         поговорить по душам, перекусить и просто хорошо провести время - кухни 3 этажа. Отправляйся туда
                         и найди там Александрова
                     </Div>
-                    <Button component="a" href="https://vk.com/camera" before={<Icon24Qr/>} size="xl">
+                    <Button component="a" href="https://vk.com/camera" before={<Icon24Qr/>}
+                            onclick={()=> this.props.go("nastya")}
+                            size="xl">
                         Открыть камеру VK
                     </Button>
                 </FormLayout>
