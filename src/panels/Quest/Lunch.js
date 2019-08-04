@@ -61,6 +61,8 @@ class Lunch extends React.Component {
                             }}>
                         Пойти поесть!
                     </Button>
+                    <Div className="questPS">
+                        PS: Начало квеста на ресепшене третьего этажа!                    </Div>
                 </FormLayout>
 
             </Panel>

@@ -25,7 +25,9 @@ class Final extends React.Component {
         let {id} = this.props;
         return (
             <Panel id={id} theme="white">
-                <Div><div className="categoryText">Квест 16/16</div></Div>
+                <Div>
+                    <div className="categoryText">Квест 16/16</div>
+                </Div>
 
                 <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                     <br/> <br/>
@@ -33,7 +35,9 @@ class Final extends React.Component {
                 </Div>
                 <FormLayout>
                     <Div align="center">
-                        Что ж, вот ты и обошел весь Зингер вдоль и поперек. Конечно остались места, где ты еще не был, но тут ты уже давай сам. Я открою тебе доступ ко вкладке со всеми ачивками, чтобы ты смог понять, каких тебе не хватает и найти их.</Div>
+                        Что ж, вот ты и обошел весь Зингер вдоль и поперек. Конечно остались места, где ты еще не был,
+                        но тут ты уже давай сам. Я открою тебе доступ ко вкладке со всеми ачивками, чтобы ты смог
+                        понять, каких тебе не хватает и найти их.</Div>
                 </FormLayout>
 
             </Panel>

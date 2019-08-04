@@ -42,6 +42,8 @@ class Dambo2 extends React.Component {
                     <Button  size="xl" onClick={()=>this.props.go("lampas")}>
                         Далее
                     </Button>
+                    <Div className="questPS">
+                        PS: Начало квеста на ресепшене третьего этажа!                    </Div>
                 </FormLayout>
 
             </Panel>

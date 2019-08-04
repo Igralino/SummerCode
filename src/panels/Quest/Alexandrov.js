@@ -23,7 +23,9 @@ class Alexandrov extends React.Component {
         let {id} = this.props;
         return (
             <Panel id={id} theme="white">
-                <Div><div className="categoryText">Квест 2/16</div></Div>
+                <Div>
+                    <div className="categoryText">Квест 2/16</div>
+                </Div>
                 <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                     <br/> <br/>
                     <img width="170" height="170" src="https://vk.com/sticker/1-14153-256" alt="Alexandrov"/>
@@ -35,11 +37,12 @@ class Alexandrov extends React.Component {
                         и найди там Александрова
                     </Div>
                     <Button component="a" href="https://vk.com/camera" before={<Icon24Qr/>}
-                            onClick={()=> this.props.go("nastya")}
+                            onClick={() => this.props.go("nastya")}
                             size="xl">
                         Открыть камеру VK
                     </Button>
-                   
+                    <Div className="questPS">
+                        PS: Начало квеста на ресепшене третьего этажа! </Div>
                 </FormLayout>
 
             </Panel>

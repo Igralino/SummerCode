@@ -42,6 +42,8 @@ class Nastya2 extends React.Component {
                             onClick={() => this.props.go("dambo")}>
                         Ничего себе!
                     </Button>
+                    <Div className="questPS">
+                        PS: Начало квеста на ресепшене третьего этажа!                    </Div>
                 </FormLayout>
 
             </Panel>

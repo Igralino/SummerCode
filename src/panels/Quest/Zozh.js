@@ -88,6 +88,8 @@ class Zozh extends React.Component {
                     <Button onClick={() => this.props.go("stars")} size="xl">
                         Далее
                     </Button>}
+                    <Div className="questPS">
+                        PS: Начало квеста на ресепшене третьего этажа!                    </Div>
                 </FormLayout>
 
             </Panel>

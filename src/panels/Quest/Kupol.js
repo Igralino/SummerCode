@@ -44,6 +44,8 @@ class Kupol extends React.Component {
                             this.props.unlock(!this.state.isFinished)}}>
                         С этим не поспоришь
                     </Button>
+                    <Div className="questPS">
+                        PS: Начало квеста на ресепшене третьего этажа!                    </Div>
                 </FormLayout>
 
             </Panel>

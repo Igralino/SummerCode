@@ -41,7 +41,7 @@ import {
     AchievementsPlaces
 } from './panels/Achievements';
 
-export const urlBack = "https://clever-quail-35.localtunnel.me/hackaton/";
+export const urlBack =  "https://tidy-snake-33.localtunnel.me/hackaton/";
 
 
 class App extends React.Component {
@@ -217,7 +217,7 @@ class App extends React.Component {
         axios({
             url: userURL, method: "post", data: formData, headers: {
                 'Content-Type': 'application/json'
-            }, timeout: 7000
+            }, timeout: 15000
         }).then(response => {
             console.log("ZBS");
         }).catch(error => {
@@ -242,7 +242,7 @@ class App extends React.Component {
     componentDidMount() {
         const queryParams = window.location.search;
         const userURL = urlBack + "userInfo" + queryParams;
-        axios({url: userURL, method: "get", timeout: 7000}).then(response => {
+        axios({url: userURL, method: "get", timeout: 15000}).then(response => {
             this.setState({popout: null});
             this.setState({activeQuestPanel: response.data["screen"]});
             this.setState({lastScanned: response.data["lastScanned"]});

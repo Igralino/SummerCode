@@ -27,7 +27,9 @@ class Dambo extends React.Component {
         let {id} = this.props;
         return (
             <Panel id={id} theme="white">
-                <Div><div className="categoryText">Квест 5/16</div></Div>
+                <Div>
+                    <div className="categoryText">Квест 5/16</div>
+                </Div>
 
                 <Div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                     <br/> <br/>
@@ -42,6 +44,8 @@ class Dambo extends React.Component {
                     <Button component="a" href="https://vk.com/camera" before={<Icon24Qr/>} size="xl">
                         Открыть камеру VK
                     </Button>
+                    <Div className="questPS">
+                        PS: Начало квеста на ресепшене третьего этажа! </Div>
                 </FormLayout>
 
             </Panel>

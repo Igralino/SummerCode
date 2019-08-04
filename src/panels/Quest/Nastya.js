@@ -86,6 +86,8 @@ class Nastya extends React.Component {
                     {(this.state.goodSubmitted || this.state.badSubmitted) && <Button component="a" href="https://vk.com/camera" before={<Icon24Qr/>} size="xl">
                         Открыть камеру VK
                     </Button>}
+                    <Div className="questPS">
+                        PS: Начало квеста на ресепшене третьего этажа!                    </Div>
                 </FormLayout>
 
             </Panel>
